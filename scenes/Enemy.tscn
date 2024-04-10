@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://buiqh77we773m"]
 
 [ext_resource type="Script" path="res://scripts/Enemy.gd" id="1"]
-[ext_resource type="Texture2D" uid="uid://caelfigvrg7h8" path="res://Sprites/enemy1.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://c7glqob0uvyut" path="res://Sprites/enemy_red.png" id="2_uv18p"]
 [ext_resource type="Script" path="res://scenes/DirectionTimer.gd" id="3_pw7ye"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q1k7v"]
@@ -20,7 +20,7 @@ shape = SubResource("RectangleShape2D_q1k7v")
 script = ExtResource("1")
 
 [node name="EnemySprite" type="Sprite2D" parent="Area2D/Enemy"]
-texture = ExtResource("2")
+texture = ExtResource("2_uv18p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/Enemy"]
 position = Vector2(-8, 2)
