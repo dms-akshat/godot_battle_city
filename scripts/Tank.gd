@@ -1,20 +1,24 @@
 extends CharacterBody2D
 
+var SPEED = 200
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-var velocity = 20
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	set_velocity(Vector2(0,0))
+	
 	move_and_slide()
+	if(Input.is_action_pressed("ui_left")):
+		velocity = Vector2(-SPEED, 0)
+		rotation_degrees = 270
 	if(Input.is_action_pressed("ui_right")):
-		velocity.x = 20
-		print(velocity)
+		velocity = Vector2(SPEED, 0)
+		rotation_degrees = 90
+	if(Input.is_action_pressed("ui_up")):
+		velocity = Vector2(0, -SPEED) 
+		rotation_degrees = 0
+	if(Input.is_action_pressed("ui_down")):
+		velocity = Vector2(0, SPEED)
+		rotation_degrees = 180
+	if(Input.is_action_just_released("ui_up") || Input.is_action_just_released("ui_down") || Input.is_action_just_released("ui_left") || Input.is_action_just_released("ui_right")):
+		velocity = Vector2(0,0)
