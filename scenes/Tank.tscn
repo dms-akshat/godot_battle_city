@@ -17,3 +17,25 @@ shape = SubResource("1")
 [node name="TankSprite" type="Sprite2D" parent="."]
 rotation = -1.5708
 texture = ExtResource("2_7oxhd")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(0, -119)
+scale = Vector2(1.79738, -41.911)
+
+[node name="Bullets" type="Node2D" parent="."]
+
+[node name="ShootTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="RapidTimer" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="RapidFireTimer" type="Timer" parent="RapidTimer"]
+wait_time = 0.2
+
+[connection signal="press_shoot" from="." to="." method="_on_press_shoot"]
+[connection signal="timeout" from="ShootTimer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
+[connection signal="timeout" from="RapidTimer" to="." method="_on_rapid_timer_timeout"]
+[connection signal="timeout" from="RapidTimer/RapidFireTimer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="RapidTimer/RapidFireTimer" to="." method="_on_rapid_fire_timer_timeout"]
