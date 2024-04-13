@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-[gd_scene load_steps=5 format=3 uid="uid://dj1ea2qo0sgv4"]
-=======
 [gd_scene load_steps=5 format=3 uid="uid://dfluaj2pwkwtc"]
->>>>>>> 7fc5350f5f8bb068e9800caf9d4fe2d4aa36bf0e
 
 [ext_resource type="Script" path="res://scripts/Enemy.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://c7glqob0uvyut" path="res://Sprites/enemy_red.png" id="2_uv18p"]
