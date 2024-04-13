@@ -7,7 +7,6 @@ var can_shoot:bool
 var can_rapid:bool
 var can_rapid_fire:bool
 var count :int
-var bullet_pos=$Marker2D.position
 
 var direction: Vector2
 func _ready():
@@ -44,8 +43,8 @@ func _physics_process(delta):
 		print('fire')
 		can_shoot=false
 		$ShootTimer.start()
-		#var pos=$Marker2D.position
-		press_shoot.emit(direction, bullet_pos)
+		var pos=$Marker2D.position
+		press_shoot.emit(direction,pos)
 	
 	if Input.is_action_pressed("right_shoot") and can_rapid:
 		if count>2:
@@ -56,8 +55,8 @@ func _physics_process(delta):
 			count+=1
 			$RapidFireTimer.start()
 			print('rapid fire')
-			#var pos=$Marker2D.position
-			press_shoot.emit(direction, bullet_pos)
+			var pos=$Marker2D.position
+			press_shoot.emit(direction, pos)
 		
 
 
