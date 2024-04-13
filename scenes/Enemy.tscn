@@ -1,33 +1,32 @@
+<<<<<<< HEAD
 [gd_scene load_steps=5 format=3 uid="uid://dj1ea2qo0sgv4"]
+=======
+[gd_scene load_steps=5 format=3 uid="uid://dfluaj2pwkwtc"]
+>>>>>>> 7fc5350f5f8bb068e9800caf9d4fe2d4aa36bf0e
 
 [ext_resource type="Script" path="res://scripts/Enemy.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://c7glqob0uvyut" path="res://Sprites/enemy_red.png" id="2_uv18p"]
-[ext_resource type="Script" path="res://scenes/DirectionTimer.gd" id="3_pw7ye"]
+[ext_resource type="Script" path="res://scripts/DirectionTimer.gd" id="3_pw7ye"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q1k7v"]
-size = Vector2(176, 132)
+size = Vector2(172, 132)
 
 [node name="Enemy" type="Node2D"]
-position = Vector2(200, 129)
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-8, 2)
-shape = SubResource("RectangleShape2D_q1k7v")
-
-[node name="Enemy" type="CharacterBody2D" parent="Area2D"]
+[node name="EnemyCharacter" type="CharacterBody2D" parent="."]
 script = ExtResource("1")
 
-[node name="EnemySprite" type="Sprite2D" parent="Area2D/Enemy"]
+[node name="EnemySprite" type="Sprite2D" parent="EnemyCharacter"]
+unique_name_in_owner = true
 texture = ExtResource("2_uv18p")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D/Enemy"]
-position = Vector2(-8, 2)
+[node name="EnemyCollision" type="CollisionShape2D" parent="EnemyCharacter"]
+position = Vector2(-10, 0)
 shape = SubResource("RectangleShape2D_q1k7v")
 
 [node name="DirectionTimer" type="Timer" parent="."]
+unique_name_in_owner = true
 one_shot = true
 script = ExtResource("3_pw7ye")
 
-[connection signal="timeout" from="DirectionTimer" to="Area2D/Enemy" method="_on_direction_timer_timeout"]
+[connection signal="timeout" from="DirectionTimer" to="EnemyCharacter" method="_on_direction_timer_timeout"]
