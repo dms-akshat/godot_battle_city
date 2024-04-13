@@ -3,15 +3,18 @@ extends CharacterBody2D
 signal press_shoot(direction, pos)
 var SPEED = 200
 var bullet_scene: PackedScene= preload("res://scenes/bullet2.tscn")
-var can_shoot:bool=true
-var can_rapid:bool=true
-var can_rapid_fire: bool=true
-var count:int =0
+var can_shoot:bool
+var can_rapid:bool
+var can_rapid_fire:bool
+var count :int
+var bullet_pos=$Marker2D.position
 
 var direction: Vector2
 func _ready():
-	pass # Replace with function body.
-	#can_shoot=true
+	can_shoot=true
+	can_rapid=true
+	can_rapid_fire=true
+	count=0
 
 func _physics_process(delta):
 	
@@ -36,28 +39,25 @@ func _physics_process(delta):
 
 	if(Input.is_action_just_released("ui_up") || Input.is_action_just_released("ui_down") || Input.is_action_just_released("ui_left") || Input.is_action_just_released("ui_right")):
 		velocity = Vector2(0,0)
+	
 	if(Input.is_action_pressed("shoot") and can_shoot):
 		print('fire')
 		can_shoot=false
 		$ShootTimer.start()
-		var pos=$Marker2D.position
-		press_shoot.emit(direction, pos)
+		#var pos=$Marker2D.position
+		press_shoot.emit(direction, bullet_pos)
+	
 	if Input.is_action_pressed("right_shoot") and can_rapid:
-		#print('rapid fire')
-		if count>=3:
-			print('all 3 done firing')
-		can_rapid=false
+		if count>2:
+			can_rapid=false
 		$RapidTimer.start()
 		if count<3 and can_rapid_fire:
 			can_rapid_fire=false
-			print('can_fire_rapid is false')
-			print('rapid firing')	
-			print('count=')
-			print(count)
-			count=count+1
-			print('count increased')
-			$RapidTimer/RapidFireTimer.start()
-		
+			count+=1
+			$RapidFireTimer.start()
+			print('rapid fire')
+			#var pos=$Marker2D.position
+			press_shoot.emit(direction, bullet_pos)
 		
 
 
@@ -74,10 +74,11 @@ func _on_press_shoot(direction, pos):
 func _on_rapid_timer_timeout():
 	count=0
 	can_rapid=true
+	print('outer timer ran out')
 func _on_shoot_timer_timeout():
 	can_shoot=true
 
 
 func _on_rapid_fire_timer_timeout():
 	can_rapid_fire=true
-	print('can_rapid_fire is true \ntimer out')
+	#print('can_rapid_fire is true \ntimer out')
