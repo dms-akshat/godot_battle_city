@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://3eucqmankli0"]
+
+[ext_resource type="Script" path="res://scripts/BreakableTile.gd" id="1_0aqxy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kf08r"]
+size = Vector2(90, 90)
+
+[node name="BreakableTile" type="StaticBody2D"]
+script = ExtResource("1_0aqxy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_kf08r")

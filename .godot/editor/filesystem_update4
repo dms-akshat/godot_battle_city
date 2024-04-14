@@ -1,0 +1,3 @@
+res://scenes/Level_1.tscn
+res://scripts/BreakableTile.gd
+res://scenes/breakable_tile.tscn
