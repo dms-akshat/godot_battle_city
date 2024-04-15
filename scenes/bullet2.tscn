@@ -12,9 +12,9 @@ physics_material_override = SubResource("PhysicsMaterial_14pxf")
 gravity_scale = 0.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -42)
 shape = SubResource("CapsuleShape2D_yn5ey")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, 53)
 scale = Vector2(1, 1.01868)
 texture = ExtResource("1_llfbg")
