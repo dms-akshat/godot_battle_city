@@ -2,7 +2,7 @@
 extends CharacterBody2D
 signal press_shoot(direction, pos)
 var SPEED = 200
-var bullet_scene: PackedScene= preload("res://scenes/bullet2.tscn")
+
 var can_shoot:bool
 var can_rapid:bool
 var can_rapid_fire:bool
@@ -43,7 +43,7 @@ func _physics_process(delta):
 		print('fire')
 		can_shoot=false
 		$ShootTimer.start()
-		var pos=$Marker2D.position
+		var pos=$Marker2D.global_position
 		press_shoot.emit(direction,pos)
 	
 	if Input.is_action_pressed("right_shoot") and can_rapid:
@@ -58,18 +58,6 @@ func _physics_process(delta):
 			var pos=$Marker2D.position
 			press_shoot.emit(direction, pos)
 		
-
-
-func _on_press_shoot(direction, pos):
-	print('fire recieve')
-	var bullet= bullet_scene.instantiate() as RigidBody2D
-	bullet.position=pos
-	bullet.linear_velocity= direction*500
-	$Bullets.add_child(bullet)
-	
-
-
-
 func _on_rapid_timer_timeout():
 	count=0
 	can_rapid=true

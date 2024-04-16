@@ -1,15 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://bjj51kprpc5o5"]
 
 [ext_resource type="Texture2D" uid="uid://crmcqpmtwx84e" path="res://graphics/projectiles/blue.png" id="1_llfbg"]
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_14pxf"]
+[ext_resource type="Script" path="res://scenes/bullet2.gd" id="1_vcean"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yn5ey"]
 height = 68.0
 
-[node name="Bullet" type="RigidBody2D"]
-physics_material_override = SubResource("PhysicsMaterial_14pxf")
-gravity_scale = 0.0
+[node name="Bullet" type="Area2D"]
+script = ExtResource("1_vcean")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, -42)
