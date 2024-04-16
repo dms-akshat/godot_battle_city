@@ -39,7 +39,7 @@ func _on_bullet_timer_timeout():
 	#if not is_turning:
 		var bullet= bullet_scene.instantiate() as RigidBody2D
 		var posx=$Bullet_Marker.position.x
-		print(direction)
+		#print(direction)
 		var pos=(global_position+direction*posx)
 		bullet.global_position=pos
 		bullet.linear_velocity=direction*500

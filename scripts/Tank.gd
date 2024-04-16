@@ -7,6 +7,7 @@ var can_shoot:bool
 var can_rapid:bool
 var can_rapid_fire:bool
 var count :int
+@export var n:int=3
 
 var direction: Vector2
 func _ready():
@@ -47,10 +48,10 @@ func _physics_process(delta):
 		press_shoot.emit(direction,pos)
 	
 	if Input.is_action_pressed("right_shoot") and can_rapid:
-		if count>2:
+		if count>n-1:
 			can_rapid=false
 		$RapidTimer.start()
-		if count<3 and can_rapid_fire:
+		if count<n and can_rapid_fire:
 			can_rapid_fire=false
 			count+=1
 			$RapidFireTimer.start()
