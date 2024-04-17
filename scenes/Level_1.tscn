@@ -1,6 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://ds0pljaseu5xi"]
+[gd_scene load_steps=3 format=3 uid="uid://ds0pljaseu5xi"]
 
 [ext_resource type="Script" path="res://scenes/Level_1.gd" id="1_5ha6v"]
+[ext_resource type="PackedScene" uid="uid://rnxmwfu7lte7" path="res://scenes/Tank.tscn" id="2_nerl3"]
 
 [node name="Level_1" type="Node2D"]
 script = ExtResource("1_5ha6v")
+
+[node name="Tank" parent="." instance=ExtResource("2_nerl3")]
+
+[node name="Bullets" type="Node2D" parent="."]
+
+[connection signal="press_shoot" from="Tank" to="." method="_on_tank_press_shoot"]
