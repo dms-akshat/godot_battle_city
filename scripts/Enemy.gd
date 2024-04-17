@@ -4,7 +4,7 @@ extends CharacterBody2D
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-var speed: int = 200
+var speed: int = 100
 var direction: Vector2
 var is_turning:bool=false
 var enemyval
@@ -12,8 +12,8 @@ var bullet_scene: PackedScene= preload("res://scenes/bullet2.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	position.x = 200
-	position.y = 120
+	position.x = 500
+	position.y = 240
 	direction = get_random_direction()
 
 func get_random_direction() -> Vector2:
@@ -32,6 +32,7 @@ func _process(delta):
 func _on_direction_timer_timeout():
 	direction = get_random_direction() # Replace with function body.
 	#is_turning=true
+	%Bullet_Timer.start()
 	%DirectionTimer.start()
 
 
