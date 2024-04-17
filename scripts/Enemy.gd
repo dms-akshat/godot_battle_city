@@ -38,14 +38,14 @@ func _on_direction_timer_timeout():
 
 func _on_bullet_timer_timeout():
 	#if not is_turning:
-		var bullet= bullet_scene.instantiate() as RigidBody2D
+		var bullet= bullet_scene.instantiate() as Area2D
 		var posx=$Bullet_Marker.position.x
 		print(direction)
 		var pos=(global_position+direction*posx)
 		bullet.global_position=pos
-		bullet.linear_velocity=direction*500
+		bullet.aim=direction
 		var bullet_sprite= bullet.get_node("Sprite2D")
-		bullet.look_at(bullet.linear_velocity + bullet_sprite.global_position)
+		bullet.look_at(bullet.aim + bullet_sprite.global_position)
 		bullet.global_rotation_degrees+=90
 		#bullet.look_at(bullet.linear_velocity*100)
 		
