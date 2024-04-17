@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://decdthkh0yxip"]
+
+[ext_resource type="Script" path="res://scripts/tank_spawn.gd" id="1_k2ea8"]
+[ext_resource type="PackedScene" uid="uid://dfluaj2pwkwtc" path="res://scenes/Enemy.tscn" id="1_nkoj0"]
+
+[node name="TankSpawn" type="Node2D"]
+script = ExtResource("1_k2ea8")
+
+[node name="Enemy" parent="." instance=ExtResource("1_nkoj0")]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 4.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

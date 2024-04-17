@@ -1,3 +1,7 @@
 res://scenes/Level_1.tscn
-res://scripts/BreakableTile.gd
-res://scenes/breakable_tile.tscn
+res://scenes/Enemy.tscn
+res://tank_spawn.tscn
+res://scripts/tank_spawn.gd
+res://Level_1.tres.gd
+res://scripts/Level_1.gd
+res://scripts/Level_1.tres.gd
