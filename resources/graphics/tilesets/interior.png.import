@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bx63tctfgt3lp"
-path="res://.godot/imported/icon.png-487276ed1e3a0c39cad0279d744ee560.ctex"
+uid="uid://uolcbotthkce"
+path="res://.godot/imported/interior.png-d6b0153b4f8c23c47105698353db8bba.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://icon.png"
-dest_files=["res://.godot/imported/icon.png-487276ed1e3a0c39cad0279d744ee560.ctex"]
+source_file="res://resources/graphics/tilesets/interior.png"
+dest_files=["res://.godot/imported/interior.png-d6b0153b4f8c23c47105698353db8bba.ctex"]
 
 [params]
 
