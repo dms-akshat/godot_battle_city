@@ -20,9 +20,20 @@ texture = ExtResource("2_uv18p")
 position = Vector2(-10, 0)
 shape = SubResource("RectangleShape2D_q1k7v")
 
+[node name="Bullet_Marker" type="Marker2D" parent="EnemyCharacter"]
+position = Vector2(146, -2)
+
+[node name="Bullets_Fired" type="Node" parent="EnemyCharacter"]
+
 [node name="DirectionTimer" type="Timer" parent="."]
 unique_name_in_owner = true
 one_shot = true
 script = ExtResource("3_pw7ye")
 
+[node name="Bullet_Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.5
+autostart = true
+
 [connection signal="timeout" from="DirectionTimer" to="EnemyCharacter" method="_on_direction_timer_timeout"]
+[connection signal="timeout" from="Bullet_Timer" to="EnemyCharacter" method="_on_bullet_timer_timeout"]
