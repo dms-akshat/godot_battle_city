@@ -55,7 +55,7 @@ func _physics_process(delta):
 			count+=1
 			$RapidFireTimer.start()
 			print('rapid fire')
-			var pos=$Marker2D.position
+			var pos=$Marker2D.global_position
 			press_shoot.emit(direction, pos)
 		
 func _on_rapid_timer_timeout():

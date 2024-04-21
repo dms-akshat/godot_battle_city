@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://b42qtaemw7r8m"]
+[gd_scene load_steps=2 format=3 uid="uid://bkqdtex4gfl5s"]
 
-[ext_resource type="Texture2D" uid="uid://bfpwkl00c2w80" path="res://icon.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://bx63tctfgt3lp" path="res://icon.png" id="1"]
 
 [node name="StartPage" type="Node2D"]
 

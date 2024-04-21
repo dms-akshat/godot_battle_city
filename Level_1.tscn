@@ -1,14 +1,16 @@
-[gd_scene load_steps=12 format=3 uid="uid://d4j60pxararwn"]
+[gd_scene load_steps=13 format=3 uid="uid://d4j60pxararwn"]
 
-[ext_resource type="Texture2D" uid="uid://d06n2quih3jrr" path="res://assets/background/solid_black_background.png" id="1_nbhca"]
+[ext_resource type="Texture2D" uid="uid://6jiuc1oogq05" path="res://assets/background/solid_black_background.png" id="1_nbhca"]
 [ext_resource type="PackedScene" uid="uid://decdthkh0yxip" path="res://scenes/tank_spawn.tscn" id="2_prab3"]
-[ext_resource type="Texture2D" uid="uid://xsshd4u3vdwx" path="res://assets/all bricks.png" id="3_7k38o"]
-[ext_resource type="Texture2D" uid="uid://cqurrwnw3d688" path="res://assets/top.png" id="4_yeolv"]
-[ext_resource type="Texture2D" uid="uid://c5nj2febbon8l" path="res://assets/steeltop.png" id="5_pw4y7"]
+[ext_resource type="Texture2D" uid="uid://4tervm7wi7ah" path="res://assets/all bricks.png" id="3_7k38o"]
+[ext_resource type="Texture2D" uid="uid://b3wiibw6sf1as" path="res://assets/top.png" id="4_yeolv"]
+[ext_resource type="Texture2D" uid="uid://bmxlisga528wg" path="res://assets/steeltop.png" id="5_pw4y7"]
+[ext_resource type="PackedScene" uid="uid://rnxmwfu7lte7" path="res://scenes/Tank.tscn" id="6_bq5sp"]
 
 [sub_resource type="GDScript" id="GDScript_44n8n"]
 script/source = "extends Node2D
 var spawn_scene=preload(\"res://scenes/tank_spawn.tscn\")
+var bullet_scene: PackedScene=preload(\"res://scenes/bullet2.tscn\")
 func _process(delta):
 	pass
 func _on_tank_spawn_tank_spawn():
@@ -19,6 +21,15 @@ func _on_tank_spawn_tank_spawn():
 	if $Tank_spawn.get_child_count()<=5:
 		$Tank_spawn.add_child(enemy)
 		enemy.position=selected_pos.global_position
+
+
+func _on_tank_press_shoot(direction, pos):
+	print('fire recieve')
+	var bullet= bullet_scene.instantiate() as Area2D
+	bullet.global_position=pos
+	bullet.rotation_degrees = rad_to_deg(direction.angle()) + 90
+	bullet.aim = direction
+	$Bullets.add_child(bullet) # Replace with function body.
 "
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iqxv2"]
@@ -456,4 +467,9 @@ position = Vector2(2070, 180)
 
 [node name="Tank_spawn" parent="." instance=ExtResource("2_prab3")]
 
+[node name="Tank" parent="." instance=ExtResource("6_bq5sp")]
+
+[node name="Bullets" type="Node2D" parent="."]
+
 [connection signal="tank_spawn" from="Tank_spawn" to="." method="_on_tank_spawn_tank_spawn"]
+[connection signal="press_shoot" from="Tank" to="." method="_on_tank_press_shoot"]
