@@ -16,3 +16,9 @@ shape = SubResource("CapsuleShape2D_yn5ey")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(1, 1.01868)
 texture = ExtResource("1_llfbg")
+
+[node name="Laser_Timer" type="Timer" parent="."]
+wait_time = 5.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Laser_Timer" to="." method="_on_laser_timer_timeout"]

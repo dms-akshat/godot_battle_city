@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://civsko13ciygj"]
 
-[ext_resource type="Script" path="res://scripts/Tank_spawn.gd" id="1_6thcd"]
+[ext_resource type="Script" path="res://Tank_spawn.gd" id="1_6thcd"]
 [ext_resource type="PackedScene" uid="uid://dfluaj2pwkwtc" path="res://scenes/Enemy.tscn" id="2_k3h75"]
 
 [node name="Tank_spawn" type="Node2D"]
