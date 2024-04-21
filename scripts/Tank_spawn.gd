@@ -1,4 +1,4 @@
-extends Node2D
+xtends Node2D
 var enemy_spawn=preload("res://scenes/Enemy.tscn")
 signal tank_spawn()
 func _ready():
