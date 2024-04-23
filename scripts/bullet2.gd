@@ -11,3 +11,9 @@ func _ready():
 func _process(delta):
 	global_position += aim * velocity * delta
 	
+
+
+func _on_body_entered(body):
+	if "break_tile" in body:
+		body.break_tile()
+	queue_free()

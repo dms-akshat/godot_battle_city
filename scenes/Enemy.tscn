@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dfluaj2pwkwtc"]
 
 [ext_resource type="Script" path="res://scripts/Enemy.gd" id="1"]
-[ext_resource type="Texture2D" uid="uid://c7glqob0uvyut" path="res://assets/Sprites/enemy_red.png" id="2_hiwk1"]
+[ext_resource type="Texture2D" uid="uid://co3pvi8tnvtcx" path="res://assets/Sprites/enemy_red.png" id="2_hiwk1"]
 [ext_resource type="Script" path="res://scripts/DirectionTimer.gd" id="3_pw7ye"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q1k7v"]
@@ -21,7 +21,7 @@ position = Vector2(-10, 0)
 shape = SubResource("RectangleShape2D_q1k7v")
 
 [node name="Bullet_Marker" type="Marker2D" parent="EnemyCharacter"]
-position = Vector2(146, -2)
+position = Vector2(104, 0)
 
 [node name="Bullets_Fired" type="Node" parent="EnemyCharacter"]
 
