@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dfluaj2pwkwtc"]
 
 [ext_resource type="Script" path="res://scripts/Enemy.gd" id="1"]
-[ext_resource type="Texture2D" uid="uid://c7glqob0uvyut" path="res://Sprites/enemy_red.png" id="2_uv18p"]
+[ext_resource type="Texture2D" uid="uid://c7glqob0uvyut" path="res://assets/Sprites/enemy_red.png" id="2_hiwk1"]
 [ext_resource type="Script" path="res://scripts/DirectionTimer.gd" id="3_pw7ye"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q1k7v"]
@@ -14,15 +14,26 @@ script = ExtResource("1")
 
 [node name="EnemySprite" type="Sprite2D" parent="EnemyCharacter"]
 unique_name_in_owner = true
-texture = ExtResource("2_uv18p")
+texture = ExtResource("2_hiwk1")
 
 [node name="EnemyCollision" type="CollisionShape2D" parent="EnemyCharacter"]
 position = Vector2(-10, 0)
 shape = SubResource("RectangleShape2D_q1k7v")
+
+[node name="Bullet_Marker" type="Marker2D" parent="EnemyCharacter"]
+position = Vector2(146, -2)
+
+[node name="Bullets_Fired" type="Node" parent="EnemyCharacter"]
 
 [node name="DirectionTimer" type="Timer" parent="."]
 unique_name_in_owner = true
 one_shot = true
 script = ExtResource("3_pw7ye")
 
+[node name="Bullet_Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.5
+autostart = true
+
 [connection signal="timeout" from="DirectionTimer" to="EnemyCharacter" method="_on_direction_timer_timeout"]
+[connection signal="timeout" from="Bullet_Timer" to="EnemyCharacter" method="_on_bullet_timer_timeout"]

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://iy77nsrrl0wv"]
+
+[ext_resource type="Texture2D" uid="uid://crmcqpmtwx84e" path="res://graphics/projectiles/blue.png" id="1_quks2"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yn5ey"]
+height = 116.0
+
+[node name="Bullet" type="RigidBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, 24)
+texture = ExtResource("1_quks2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_yn5ey")

@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://bkqdtex4gfl5s"]
+
+[ext_resource type="Texture2D" uid="uid://bx63tctfgt3lp" path="res://icon.png" id="1"]
+
+[node name="StartPage" type="Node2D"]
+
+[node name="Button" type="Button" parent="."]
+offset_right = 232.0
+offset_bottom = 122.0
+focus_neighbor_top = NodePath("../Button2")
+focus_neighbor_bottom = NodePath("../Button2")
+focus_next = NodePath("../Button2")
+focus_previous = NodePath("../Button2")
+text = "1 PLAYER"
+icon = ExtResource("1")
+
+[node name="Button2" type="Button" parent="."]
+offset_left = 1.0
+offset_top = 137.0
+offset_right = 231.0
+offset_bottom = 253.0
+focus_neighbor_top = NodePath("../Button")
+focus_neighbor_bottom = NodePath("../Button")
+focus_next = NodePath("../Button")
+focus_previous = NodePath("../Button")
+text = "2 PLAYER"
+icon = ExtResource("1")
