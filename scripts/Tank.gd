@@ -68,4 +68,3 @@ func _on_shoot_timer_timeout():
 
 func _on_rapid_fire_timer_timeout():
 	can_rapid_fire=true
-	#print('can_rapid_fire is true \ntimer out')

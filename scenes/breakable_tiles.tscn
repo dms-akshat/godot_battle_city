@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://8rw5hlma8045"]
 
-[ext_resource type="Script" path="res://BreakableTiles.gd" id="1_3o5oe"]
+[ext_resource type="Script" path="res://scripts/BreakableTiles.gd" id="1_3o5oe"]
 [ext_resource type="Texture2D" uid="uid://d3d8bvlur42to" path="res://assets/top_crack_2.png" id="2_7en77"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bh0bi"]
