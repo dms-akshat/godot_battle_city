@@ -1,16 +1,14 @@
-[gd_scene load_steps=13 format=3 uid="uid://d4j60pxararwn"]
+[gd_scene load_steps=12 format=3 uid="uid://d4j60pxararwn"]
 
-[ext_resource type="Texture2D" uid="uid://d06n2quih3jrr" path="res://resources/graphics/background/solid_black_background.png" id="1"]
 [ext_resource type="Script" path="res://scripts/Level_1.gd" id="1_artsy"]
-[ext_resource type="Texture2D" uid="uid://d3wljtuqpix6y" path="res://resources/graphics/tilesets/outside_walls.png" id="2"]
-[ext_resource type="PackedScene" uid="uid://civsko13ciygj" path="res://scenes/tank_spawn.tscn" id="2_prab3"]
-[ext_resource type="Texture2D" uid="uid://dcg2v5vmekueb" path="res://resources/graphics/background/all_bricks.png" id="3_7k38o"]
-[ext_resource type="Texture2D" uid="uid://dfwtpffaaeeym" path="res://resources/graphics/background/top.png" id="4_yeolv"]
-[ext_resource type="Texture2D" uid="uid://cnq4i2cjwmqlf" path="res://resources/graphics/background/steeltop.png" id="5_pw4y7"]
+[ext_resource type="PackedScene" uid="uid://civsko13ciygj" path="res://tank_spawn.tscn" id="2_prab3"]
+[ext_resource type="PackedScene" uid="uid://cj0qtva3dfgew" path="res://Globals/pause_scene.tscn" id="3_1th3n"]
+[ext_resource type="PackedScene" uid="uid://rnxmwfu7lte7" path="res://scenes/Tank.tscn" id="3_k6ve2"]
+[ext_resource type="PackedScene" uid="uid://r03q1fmt50iw" path="res://scenes/Flag.tscn" id="4_p7dn3"]
+[ext_resource type="PackedScene" uid="uid://dg3ksylqa21q5" path="res://scenes/enemy_flag.tscn" id="5_mx5hu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iqxv2"]
 resource_name = "Walls"
-texture = ExtResource("2")
 texture_region_size = Vector2i(390, 390)
 24:8/0 = 0
 24:8/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -141,7 +139,6 @@ texture_region_size = Vector2i(390, 390)
 0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(62, -195, 60, 48, -64, 50, -58, -195)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c5hej"]
-texture = ExtResource("3_7k38o")
 texture_region_size = Vector2i(160, 160)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -195,7 +192,6 @@ texture_region_size = Vector2i(160, 160)
 2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-195, -62, 195, -60, 195, 56, 62, 58, -195, 58)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gnr7h"]
-texture = ExtResource("4_yeolv")
 texture_region_size = Vector2i(90, 90)
 2:0/0 = 0
 2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -369,7 +365,6 @@ texture_region_size = Vector2i(90, 90)
 12:7/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gej3s"]
-texture = ExtResource("5_pw4y7")
 texture_region_size = Vector2i(90, 90)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -404,12 +399,14 @@ sources/4 = SubResource("TileSetAtlasSource_gej3s")
 [node name="Level_1" type="Node2D"]
 script = ExtResource("1_artsy")
 
+[node name="Tank" parent="." instance=ExtResource("3_k6ve2")]
+position = Vector2(969.937, 249.038)
+
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="background_img" type="Sprite2D" parent="Area2D"]
 position = Vector2(45, 45)
 scale = Vector2(23.3702, 14.4516)
-texture = ExtResource("1")
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("1")
@@ -443,5 +440,13 @@ position = Vector2(1260, 270)
 position = Vector2(2070, 180)
 
 [node name="Tank_spawn" parent="." instance=ExtResource("2_prab3")]
+
+[node name="Flag" parent="." instance=ExtResource("4_p7dn3")]
+position = Vector2(600, 93)
+
+[node name="EnemyFlag" parent="." instance=ExtResource("5_mx5hu")]
+position = Vector2(569.485, 566.729)
+
+[node name="PauseScene" parent="." instance=ExtResource("3_1th3n")]
 
 [connection signal="tank_spawn" from="Tank_spawn" to="." method="_on_tank_spawn_tank_spawn"]

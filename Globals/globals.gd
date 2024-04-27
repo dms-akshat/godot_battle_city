@@ -1,7 +1,7 @@
 extends Node
 
 var is_game_over:bool=false
-
+var working_scene:PackedScene=preload("res://Level_1.tscn")
 var player_health:int=30
 signal game_over
 signal pause_pressed
@@ -33,20 +33,25 @@ func blink_tween(body):
 	
 
 func _input(event : InputEvent):
+	#print(working_scene)
+	#print(get_tree().get_current_scene())
+	#print()
+	
 	if event.is_action_pressed("ui_cancel"):
-		#is_game_paused=get_tree().paused
-		#if not PauseScene.visible:
-		#	print("Pause_scene:")
-		#	print(PauseScene.visible)
-		#	PauseScene.visible=true
-		#else:
-		#	print("Pause_scene:")
-		#	print(PauseScene.visible)
-		#	PauseScene.visible=false
-		#pause_pressed.emit()
-		pause_game()
-		
-		#TransitionLayer.change_scene("res://scenes/pause_scene.tscn")
+		if not is_game_over:
+			#is_game_paused=get_tree().paused
+			#if not PauseScene.visible:
+			#	print("Pause_scene:")
+			#	print(PauseScene.visible)
+			#	PauseScene.visible=true
+			#else:
+			#	print("Pause_scene:")
+			#	print(PauseScene.visible)
+			#	PauseScene.visible=false
+			#pause_pressed.emit()
+			pause_game()
+			
+			#TransitionLayer.change_scene("res://scenes/pause_scene.tscn")
 
 func respawn():
 	await get_tree().create_timer(2.0).timeout

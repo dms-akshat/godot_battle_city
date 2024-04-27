@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-
+#var working_scene:PackedScene=preload("res://Level_1.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	

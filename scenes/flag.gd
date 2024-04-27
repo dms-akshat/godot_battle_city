@@ -9,6 +9,7 @@ func hit():
 		Globals.blink_tween($Sprite2D)
 	if flag_health<=0:
 		Globals.game_over.emit()
+		queue_free()
 
 
 

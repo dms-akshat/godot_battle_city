@@ -1,9 +1,28 @@
-[gd_scene load_steps=3 format=3 uid="uid://cj0qtva3dfgew"]
+[gd_scene load_steps=11 format=3 uid="uid://cj0qtva3dfgew"]
 
 [ext_resource type="Script" path="res://Globals/pause_scene.gd" id="1_iv45s"]
+[ext_resource type="FontFile" uid="uid://b2ryg7d2aqxdo" path="res://assets/fonts/font-7x7.ttf" id="2_enxco"]
+
+[sub_resource type="Theme" id="Theme_lcncn"]
+default_font = ExtResource("2_enxco")
 
 [sub_resource type="LabelSettings" id="LabelSettings_cyivn"]
-font_size = 33
+font_size = 43
+
+[sub_resource type="Theme" id="Theme_x2nmi"]
+default_font = ExtResource("2_enxco")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3ysgi"]
+
+[sub_resource type="Theme" id="Theme_y5eya"]
+default_font = ExtResource("2_enxco")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6kfae"]
+
+[sub_resource type="Theme" id="Theme_fw2gf"]
+default_font = ExtResource("2_enxco")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6ttdd"]
 
 [node name="PauseScene" type="CanvasLayer"]
 process_mode = 2
@@ -19,6 +38,8 @@ alignment = 1
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
+theme = SubResource("Theme_lcncn")
+theme_override_colors/font_outline_color = Color(1, 0, 0, 1)
 text = "GAME PAUSED"
 label_settings = SubResource("LabelSettings_cyivn")
 horizontal_alignment = 1
@@ -45,6 +66,10 @@ focus_neighbor_top = NodePath("../Button3")
 focus_neighbor_bottom = NodePath("../Button2")
 focus_next = NodePath("../Button2")
 focus_previous = NodePath("../Button3")
+theme = SubResource("Theme_x2nmi")
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_color = Color(0.631373, 0.631373, 0.631373, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3ysgi")
 text = "RESUME"
 
 [node name="Button2" type="Button" parent="VBoxContainer2"]
@@ -55,6 +80,10 @@ focus_neighbor_top = NodePath("../Button")
 focus_neighbor_bottom = NodePath("../Button3")
 focus_next = NodePath("../Button3")
 focus_previous = NodePath("../Button")
+theme = SubResource("Theme_y5eya")
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_color = Color(0.631373, 0.631373, 0.631373, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6kfae")
 text = "RESTART"
 
 [node name="Button3" type="Button" parent="VBoxContainer2"]
@@ -65,6 +94,10 @@ focus_neighbor_top = NodePath("../Button2")
 focus_neighbor_bottom = NodePath("../Button")
 focus_next = NodePath("../Button")
 focus_previous = NodePath("../Button2")
+theme = SubResource("Theme_fw2gf")
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_color = Color(0.631373, 0.631373, 0.631373, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6ttdd")
 text = "MAIN MENU"
 
 [connection signal="pressed" from="VBoxContainer2/Button" to="." method="_on_button_pressed"]

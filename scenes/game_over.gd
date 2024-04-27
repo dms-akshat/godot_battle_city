@@ -1,7 +1,7 @@
 extends Control
 
-@onready var score_label:Label=$VBoxContainer3/Label2
-@onready var tank_label:Label=$VBoxContainer3/Label4
+@onready var score_label:Label=$VBoxContainer3/VBoxContainer/Label2
+@onready var tank_label:Label=$VBoxContainer3/VBoxContainer4/Label4
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
