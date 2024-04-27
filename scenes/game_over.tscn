@@ -1,9 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://c21bi0swmoeby"]
+[gd_scene load_steps=5 format=3 uid="uid://c21bi0swmoeby"]
 
 [ext_resource type="Script" path="res://scenes/game_over.gd" id="1_2u51w"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_56fw4"]
 font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_ufnfn"]
+font_size = 26
+
+[sub_resource type="LabelSettings" id="LabelSettings_g8po6"]
+font_size = 59
 
 [node name="GameOver" type="Control"]
 layout_mode = 3
@@ -29,15 +35,57 @@ text = "GAME OVER!"
 label_settings = SubResource("LabelSettings_56fw4")
 horizontal_alignment = 1
 
+[node name="VBoxContainer3" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -69.5
+offset_top = -61.0
+offset_right = 69.5
+offset_bottom = 61.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer3"]
+layout_mode = 2
+text = "SCORE:"
+label_settings = SubResource("LabelSettings_ufnfn")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer3"]
+layout_mode = 2
+text = "1000
+"
+label_settings = SubResource("LabelSettings_g8po6")
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="VBoxContainer3"]
+layout_mode = 2
+text = "TANKS DESTROYED:"
+label_settings = SubResource("LabelSettings_ufnfn")
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="VBoxContainer3"]
+layout_mode = 2
+text = "10"
+label_settings = SubResource("LabelSettings_g8po6")
+horizontal_alignment = 1
+
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.4
-anchor_right = 0.5
-anchor_bottom = 0.4
-grow_horizontal = 2
-grow_vertical = 2
+anchor_top = 0.85
+anchor_bottom = 0.85
+offset_top = -79.8
+offset_right = 116.0
+offset_bottom = -6.79999
 scale = Vector2(2, 2)
+theme_override_constants/separation = 6
+alignment = 2
 
 [node name="Button" type="Button" parent="VBoxContainer2"]
 layout_mode = 2

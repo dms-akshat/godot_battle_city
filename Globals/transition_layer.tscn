@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cq2xx3vppuj2h"]
 
-[ext_resource type="Script" path="res://scenes/transition_layer.gd" id="1_jt8hq"]
+[ext_resource type="Script" path="res://Globals/transition_layer.gd" id="1_jt8hq"]
 
 [sub_resource type="Animation" id="Animation_fy0rh"]
 resource_name = "fade_to_black"
@@ -23,16 +23,17 @@ _data = {
 }
 
 [node name="TransitionLayer" type="CanvasLayer"]
+process_mode = 3
 script = ExtResource("1_jt8hq")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-modulate = Color(0, 0, 0, 1)
+modulate = Color(0, 0, 0, 0)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0)
+color = Color(0, 0, 0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

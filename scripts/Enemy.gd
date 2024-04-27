@@ -9,13 +9,14 @@ var direction: Vector2
 var is_turning:bool=false
 var enemyval
 var bullet_scene: PackedScene= preload("res://scenes/bullet2.tscn")
-var enemy_health:int=30
+var enemy_health:int
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	position.x = 500
 	position.y = 240
 	direction = get_random_direction()
+	enemy_health=30
 
 func get_random_direction() -> Vector2:
 	var directions = [Vector2.LEFT, Vector2.RIGHT, Vector2.UP, Vector2.DOWN]

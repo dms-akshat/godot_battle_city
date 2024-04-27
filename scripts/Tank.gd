@@ -14,6 +14,7 @@ func _ready():
 	can_shoot=true
 	can_rapid=true
 	can_rapid_fire=true
+	Globals.player_health=30
 	count=0
 
 func _physics_process(delta):
