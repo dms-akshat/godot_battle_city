@@ -23,6 +23,7 @@ position = Vector2(0, -119)
 scale = Vector2(1.79738, -41.911)
 
 [node name="ShootTimer" type="Timer" parent="."]
+one_shot = true
 autostart = true
 
 [node name="RapidTimer" type="Timer" parent="."]
@@ -32,8 +33,8 @@ wait_time = 5.0
 wait_time = 0.2
 
 [connection signal="press_shoot" from="." to="." method="_on_press_shoot"]
-[connection signal="timeout" from="ShootTimer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
+[connection signal="timeout" from="ShootTimer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="RapidTimer" to="." method="_on_rapid_timer_timeout"]
 [connection signal="timeout" from="RapidFireTimer" to="." method="_on_rapid_fire_timer_timeout"]
 [connection signal="timeout" from="RapidFireTimer" to="." method="_on_timer_timeout"]

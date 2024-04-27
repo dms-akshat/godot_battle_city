@@ -18,6 +18,7 @@ var bullet_scene: PackedScene=preload(\"res://scenes/bullet2.tscn\")
 
 func _process(delta):
 	pass
+	
 func _on_tank_spawn_tank_spawn():
 	var spawn_locations=get_node(\"SpawnLocations\")
 	var children=spawn_locations.get_children()
@@ -466,9 +467,6 @@ scale = Vector2(0.5, 0.5)
 position = Vector2(1874, 1858)
 scale = Vector2(0.5, 0.5)
 
-[node name="Bullets" type="Node2D" parent="."]
-position = Vector2(1874, 1857)
-
 [node name="BreakableTiles" type="Node2D" parent="."]
 position = Vector2(-1447, 726)
 
@@ -912,6 +910,8 @@ tilemap = NodePath("../../TileMap")
 [node name="BreakableTiles13" parent="BreakableTiles" node_paths=PackedStringArray("tilemap") instance=ExtResource("7_fctgq")]
 position = Vector2(1762, -231)
 tilemap = NodePath("../../TileMap")
+
+[node name="Bullets" type="Node2D" parent="."]
 
 [connection signal="tank_spawn" from="Tank_spawn" to="." method="_on_tank_spawn_tank_spawn"]
 [connection signal="press_shoot" from="Tank" to="." method="_on_tank_press_shoot"]

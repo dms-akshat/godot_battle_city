@@ -8,7 +8,7 @@ var can_rapid:bool
 var can_rapid_fire:bool
 var count :int
 
-var direction: Vector2
+var direction: Vector2 = Vector2.UP
 func _ready():
 	can_shoot=true
 	can_rapid=true
