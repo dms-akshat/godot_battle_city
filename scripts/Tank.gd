@@ -1,6 +1,7 @@
 
 extends CharacterBody2D
 signal press_shoot(direction, pos)
+#signal player_dead
 var SPEED = 200
 
 var can_shoot:bool
@@ -14,7 +15,7 @@ func _ready():
 	can_shoot=true
 	can_rapid=true
 	can_rapid_fire=true
-	Globals.player_health=30
+	Globals.player_health=10
 	count=0
 
 func _physics_process(delta):
@@ -72,9 +73,16 @@ func hit():
 		Globals.player_health-=10
 		Globals.blink_tween($TankSprite)
 	if Globals.player_health<=0:
-		Globals.game_over.emit()
+		Globals.player_lives-=1
+		if Globals.player_lives>0:
+			Globals.respawn()
+			get_tree().paused=true
+		else:
+			Globals.game_over.emit()
+		
 	print(Globals.player_health)
 
 func _on_rapid_fire_timer_timeout():
 	can_rapid_fire=true
 	#print('can_rapid_fire is true \ntimer out')
+

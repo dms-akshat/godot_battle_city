@@ -7,6 +7,7 @@ signal game_over
 signal pause_pressed
 var score:int
 var tank_destroyed:int
+var player_lives:int=3
 #var pause_scene
 #var is_game_paused:bool:
 #	get:
@@ -18,6 +19,7 @@ var current_scene: PackedScene
 
 func _ready():
 	process_mode=Node.PROCESS_MODE_ALWAYS
+	
 	#pause_scene=PauseScene.instantiate()
 	#add_child(pause_scene)
 	
@@ -45,6 +47,12 @@ func _input(event : InputEvent):
 		pause_game()
 		
 		#TransitionLayer.change_scene("res://scenes/pause_scene.tscn")
+
+func respawn():
+	await get_tree().create_timer(2.0).timeout
+	var is_game_paused=get_tree().paused
+	get_tree().paused= not is_game_paused
+	
 
 func pause_game():
 	var is_game_paused=get_tree().paused

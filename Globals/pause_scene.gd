@@ -28,6 +28,7 @@ func _on_button_pressed():
 	#TransitionLayer.change_scene("res://scenes/Level_1.tscn")
 	#await get_tree().create_timer(2.0).timeout
 	#hide()
+	#visible=true
 	Globals.pause_game()
 
 
