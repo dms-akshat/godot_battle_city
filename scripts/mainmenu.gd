@@ -16,7 +16,6 @@ func _process(delta):
 	if(position.y<0):
 		velocity=0
 		
-	#position=Vector2(0,0)
 	position+=Vector2.UP*velocity*delta
 	
 
