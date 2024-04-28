@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://vuig1byvunqr"]
 
 [ext_resource type="Script" path="res://scripts/mainmenu.gd" id="1_qbswg"]
-[ext_resource type="FontFile" uid="uid://b2ryg7d2aqxdo" path="res://assets/fonts/font-7x7.ttf" id="2_7467h"]
-[ext_resource type="Texture2D" uid="uid://6jiuc1oogq05" path="res://assets/background/solid_black_background.png" id="2_xvsxd"]
+[ext_resource type="FontFile" uid="uid://cybsaxuk8hr23" path="res://assets/fonts/font-7x7.ttf" id="2_7467h"]
+[ext_resource type="Texture2D" uid="uid://bkj2juv31ei4l" path="res://assets/background/solid_black_background.png" id="2_xvsxd"]
 
 [sub_resource type="Theme" id="Theme_0afyi"]
 default_font = ExtResource("2_7467h")
@@ -24,16 +24,13 @@ default_font = ExtResource("2_7467h")
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pa8n5"]
 
 [node name="Control" type="Control"]
+z_index = 2
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-focus_neighbor_top = NodePath("VBoxContainer/Options")
-focus_neighbor_bottom = NodePath("VBoxContainer/Options")
-focus_next = NodePath("VBoxContainer/Options")
-focus_previous = NodePath("VBoxContainer/Options")
 script = ExtResource("1_qbswg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

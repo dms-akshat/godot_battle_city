@@ -24,6 +24,7 @@ _data = {
 
 [node name="TransitionLayer" type="CanvasLayer"]
 process_mode = 3
+layer = 0
 script = ExtResource("1_jt8hq")
 
 [node name="ColorRect" type="ColorRect" parent="."]
