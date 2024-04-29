@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://d4j60pxararwn"]
+[gd_scene load_steps=17 format=3 uid="uid://d4j60pxararwn"]
 
 [ext_resource type="Texture2D" uid="uid://6jiuc1oogq05" path="res://assets/background/solid_black_background.png" id="1_nbhca"]
 [ext_resource type="PackedScene" uid="uid://decdthkh0yxip" path="res://scenes/tank_spawn.tscn" id="2_prab3"]
@@ -7,6 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://bmxlisga528wg" path="res://assets/steeltop.png" id="5_pw4y7"]
 [ext_resource type="PackedScene" uid="uid://rnxmwfu7lte7" path="res://scenes/Tank.tscn" id="6_bq5sp"]
 [ext_resource type="PackedScene" uid="uid://8rw5hlma8045" path="res://scenes/breakable_tiles.tscn" id="7_fctgq"]
+[ext_resource type="PackedScene" uid="uid://r03q1fmt50iw" path="res://scenes/Flag.tscn" id="8_fnjvn"]
+[ext_resource type="PackedScene" uid="uid://dg3ksylqa21q5" path="res://scenes/enemy_flag.tscn" id="9_qn5lx"]
+[ext_resource type="PackedScene" uid="uid://cj0qtva3dfgew" path="res://Globals/pause_scene.tscn" id="10_3u5fd"]
 
 [sub_resource type="GDScript" id="GDScript_44n8n"]
 script/source = "extends Node2D
@@ -15,6 +18,8 @@ var bullet_scene: PackedScene=preload(\"res://scenes/bullet2.tscn\")
 #func _ready():
 	#get_viewport().size = Vector2(5000,3000)  # Adjust the size as needed
 
+func _ready():
+	Globals.connect(\"game_over\", _on_game_over)
 
 func _process(delta):
 	pass
@@ -36,6 +41,13 @@ func _on_tank_press_shoot(direction, pos):
 	bullet.rotation_degrees=rad_to_deg(direction.angle())+90
 	bullet.aim=direction
 	$Bullets.add_child(bullet)
+
+func _on_game_over():
+	print('game over')
+	Globals.is_game_over=true
+	await get_tree().create_timer(2.0).timeout
+	get_tree().change_scene_to_file(\"res://scenes/game_over.tscn\")
+	
 "
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iqxv2"]
@@ -431,6 +443,7 @@ sources/3 = SubResource("TileSetAtlasSource_gnr7h")
 sources/4 = SubResource("TileSetAtlasSource_gej3s")
 
 [node name="Level_1" type="Node2D"]
+process_mode = 1
 script = SubResource("GDScript_44n8n")
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -912,6 +925,15 @@ position = Vector2(1762, -231)
 tilemap = NodePath("../../TileMap")
 
 [node name="Bullets" type="Node2D" parent="."]
+
+[node name="Flag" parent="." instance=ExtResource("8_fnjvn")]
+position = Vector2(1644, 1867)
+
+[node name="EnemyFlag" parent="." instance=ExtResource("9_qn5lx")]
+position = Vector2(3682, 220)
+
+[node name="PauseScene" parent="." instance=ExtResource("10_3u5fd")]
+visible = false
 
 [connection signal="tank_spawn" from="Tank_spawn" to="." method="_on_tank_spawn_tank_spawn"]
 [connection signal="press_shoot" from="Tank" to="." method="_on_tank_press_shoot"]

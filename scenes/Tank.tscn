@@ -33,8 +33,8 @@ wait_time = 5.0
 wait_time = 0.2
 
 [connection signal="press_shoot" from="." to="." method="_on_press_shoot"]
-[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
 [connection signal="timeout" from="ShootTimer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
 [connection signal="timeout" from="RapidTimer" to="." method="_on_rapid_timer_timeout"]
-[connection signal="timeout" from="RapidFireTimer" to="." method="_on_rapid_fire_timer_timeout"]
 [connection signal="timeout" from="RapidFireTimer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="RapidFireTimer" to="." method="_on_rapid_fire_timer_timeout"]
