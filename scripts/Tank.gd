@@ -8,7 +8,7 @@ var can_rapid:bool
 var can_rapid_fire:bool
 var count :int
 
-var direction: Vector2
+var direction: Vector2 = Vector2.UP
 func _ready():
 	can_shoot=true
 	can_rapid=true
@@ -68,4 +68,3 @@ func _on_shoot_timer_timeout():
 
 func _on_rapid_fire_timer_timeout():
 	can_rapid_fire=true
-	#print('can_rapid_fire is true \ntimer out')

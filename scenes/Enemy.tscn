@@ -21,7 +21,7 @@ position = Vector2(-10, 0)
 shape = SubResource("RectangleShape2D_q1k7v")
 
 [node name="Bullet_Marker" type="Marker2D" parent="EnemyCharacter"]
-position = Vector2(146, -2)
+position = Vector2(104, 0)
 
 [node name="Bullets_Fired" type="Node" parent="EnemyCharacter"]
 
