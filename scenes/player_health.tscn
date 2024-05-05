@@ -1,0 +1,44 @@
+[gd_scene load_steps=2 format=3 uid="uid://bkc8krjkm6cx7"]
+
+[ext_resource type="Script" path="res://scenes/player_health.gd" id="1_i03oq"]
+
+[node name="on_screen_stuff" type="CanvasLayer"]
+script = ExtResource("1_i03oq")
+
+[node name="player_health" type="ProgressBar" parent="."]
+modulate = Color(0, 0, 1, 1)
+custom_minimum_size = Vector2(400, 60)
+offset_left = 2766.0
+offset_top = 150.0
+offset_right = 3166.0
+offset_bottom = 210.0
+max_value = 40.0
+value = 40.0
+show_percentage = false
+
+[node name="no_of_flags" type="ProgressBar" parent="."]
+modulate = Color(1, 0, 0, 1)
+custom_minimum_size = Vector2(300, 60)
+offset_left = 650.0
+offset_top = 150.0
+offset_right = 950.0
+offset_bottom = 210.0
+max_value = 3.0
+value = 3.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="."]
+offset_left = 2855.0
+offset_top = 219.0
+offset_right = 2959.0
+offset_bottom = 242.0
+scale = Vector2(2, 2)
+text = "Player Health"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 674.0
+offset_top = 226.0
+offset_right = 800.0
+offset_bottom = 249.0
+scale = Vector2(2, 2)
+text = "Flags Remaining"

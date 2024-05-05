@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://d4j60pxararwn"]
+[gd_scene load_steps=18 format=3 uid="uid://d4j60pxararwn"]
 
 [ext_resource type="Texture2D" uid="uid://6jiuc1oogq05" path="res://assets/background/solid_black_background.png" id="1_nbhca"]
 [ext_resource type="PackedScene" uid="uid://decdthkh0yxip" path="res://scenes/tank_spawn.tscn" id="2_prab3"]
@@ -7,14 +7,21 @@
 [ext_resource type="Texture2D" uid="uid://bmxlisga528wg" path="res://assets/steeltop.png" id="5_pw4y7"]
 [ext_resource type="PackedScene" uid="uid://rnxmwfu7lte7" path="res://scenes/Tank.tscn" id="6_bq5sp"]
 [ext_resource type="PackedScene" uid="uid://8rw5hlma8045" path="res://scenes/breakable_tiles.tscn" id="7_fctgq"]
+[ext_resource type="PackedScene" uid="uid://r03q1fmt50iw" path="res://scenes/Flag.tscn" id="8_fnjvn"]
+[ext_resource type="PackedScene" uid="uid://dg3ksylqa21q5" path="res://scenes/enemy_flag.tscn" id="9_qn5lx"]
+[ext_resource type="PackedScene" uid="uid://cj0qtva3dfgew" path="res://Globals/pause_scene.tscn" id="10_3u5fd"]
+[ext_resource type="PackedScene" uid="uid://bkc8krjkm6cx7" path="res://scenes/player_health.tscn" id="11_c0en5"]
 
 [sub_resource type="GDScript" id="GDScript_44n8n"]
 script/source = "extends Node2D
 var spawn_scene=preload(\"res://scenes/tank_spawn.tscn\")
 var bullet_scene: PackedScene=preload(\"res://scenes/bullet2.tscn\")
+var player_bullet_scene: PackedScene=preload(\"res://scenes/player_bullet.tscn\")
 #func _ready():
 	#get_viewport().size = Vector2(5000,3000)  # Adjust the size as needed
 
+func _ready():
+	Globals.connect(\"game_over\", _on_game_over)
 
 func _process(delta):
 	pass
@@ -24,18 +31,25 @@ func _on_tank_spawn_tank_spawn():
 	var children=spawn_locations.get_children()
 	var enemy=spawn_scene.instantiate()
 	var selected_pos=children[randi()%children.size()]
-	if $Tank_spawn.get_child_count()<=5:
+	if $Tank_spawn.get_child_count()<=6 :
 		$Tank_spawn.add_child(enemy)
-		enemy.position=selected_pos.global_position
+		enemy.global_position=selected_pos.global_position
 
 
 func _on_tank_press_shoot(direction, pos):
-	print(\"Fire receive\")
-	var bullet=bullet_scene.instantiate() as Area2D
+	#print(\"Fire receive\")
+	var bullet=player_bullet_scene.instantiate() as Area2D
 	bullet.global_position=pos
-	bullet.rotation_degrees=rad_to_deg(direction.angle())+90
+	bullet.rotation_degrees=rad_to_deg(direction.angle())
 	bullet.aim=direction
 	$Bullets.add_child(bullet)
+
+func _on_game_over():
+	print('game over')
+	Globals.is_game_over=true
+	await get_tree().create_timer(2.0).timeout
+	get_tree().change_scene_to_file(\"res://scenes/game_over.tscn\")
+	
 "
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iqxv2"]
@@ -431,11 +445,13 @@ sources/3 = SubResource("TileSetAtlasSource_gnr7h")
 sources/4 = SubResource("TileSetAtlasSource_gej3s")
 
 [node name="Level_1" type="Node2D"]
+process_mode = 1
 script = SubResource("GDScript_44n8n")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="background_img" type="Sprite2D" parent="Area2D"]
+position = Vector2(186, -158)
 scale = Vector2(40.189, 24.8056)
 texture = ExtResource("1_nbhca")
 
@@ -445,22 +461,19 @@ format = 2
 layer_0/tile_data = PackedInt32Array(0, 4, 0, 65536, 4, 0, 131072, 4, 0, 196608, 4, 0, 262144, 4, 0, 327680, 4, 0, 393216, 4, 0, 458752, 4, 0, 524288, 4, 0, 589824, 4, 0, 655360, 4, 0, 720896, 4, 0, 786432, 4, 0, 851968, 4, 0, 917504, 4, 0, 983040, 4, 0, 1048576, 4, 0, 1114112, 4, 0, 1179648, 4, 0, 1245184, 4, 0, 1310720, 4, 0, 1, 4, 0, 2, 4, 0, 3, 4, 0, 4, 4, 0, 5, 4, 0, 6, 4, 0, 7, 4, 0, 24, 4, 0, 25, 4, 0, 26, 4, 0, 27, 4, 0, 28, 4, 0, 29, 4, 0, 30, 4, 0, 31, 4, 0, 32, 4, 0, 33, 4, 0, 34, 4, 0, 35, 4, 0, 36, 4, 0, 37, 4, 0, 38, 4, 0, 39, 4, 0, 40, 4, 0, 41, 4, 0, 42, 4, 0, 8, 4, 0, 9, 4, 0, 10, 4, 0, 11, 4, 0, 12, 4, 0, 13, 4, 0, 14, 4, 0, 15, 4, 0, 16, 4, 0, 17, 4, 0, 18, 4, 0, 19, 4, 0, 23, 4, 0, 22, 4, 0, 21, 4, 0, 20, 4, 0, 65578, 4, 0, 131114, 4, 0, 196650, 4, 0, 262186, 4, 0, 327722, 4, 0, 393258, 4, 0, 458794, 4, 0, 524330, 4, 0, 589866, 4, 0, 655402, 4, 0, 720938, 4, 0, 786474, 4, 0, 852010, 4, 0, 917546, 4, 0, 983082, 4, 0, 1048618, 4, 0, 1114154, 4, 0, 1179690, 4, 0, 1245226, 4, 0, 1310762, 4, 0, 1441792, 4, 0, 1441793, 4, 0, 1441794, 4, 0, 1441795, 4, 0, 1441796, 4, 0, 1441797, 4, 0, 1441798, 4, 0, 1441799, 4, 0, 1441800, 4, 0, 1441801, 4, 0, 1441802, 4, 0, 1441803, 4, 0, 1441804, 4, 0, 1441805, 4, 0, 1441806, 4, 0, 1441807, 4, 0, 1441808, 4, 0, 1441809, 4, 0, 1441810, 4, 0, 1441811, 4, 0, 1441812, 4, 0, 1441813, 4, 0, 1441814, 4, 0, 1441815, 4, 0, 1441816, 4, 0, 1441817, 4, 0, 1441818, 4, 0, 1441819, 4, 0, 1441820, 4, 0, 1441821, 4, 0, 1441822, 4, 0, 1441823, 4, 0, 1441824, 4, 0, 1441825, 4, 0, 1441826, 4, 0, 1441827, 4, 0, 1441828, 4, 0, 1441829, 4, 0, 1441830, 4, 0, 1441831, 4, 0, 1441832, 4, 0, 1441833, 4, 0, 1441834, 4, 0, 1376298, 4, 0, 1376256, 4, 0, 1376257, 4, 0, 1310721, 4, 0, 1245185, 4, 0, 1179649, 4, 0, 1179650, 4, 0, 1179651, 4, 0, 1245188, 4, 0, 1310724, 4, 0, 1376260, 4, 0, 1376259, 4, 0, 1376258, 4, 0, 1310722, 4, 0, 1310723, 4, 0, 1245187, 4, 0, 1245186, 4, 0, 1376297, 4, 0, 1310761, 4, 0, 1245225, 4, 0, 1179689, 4, 0, 1179688, 4, 0, 1179687, 4, 0, 1245222, 4, 0, 1310758, 4, 0, 1376294, 4, 0, 1376295, 4, 0, 1376296, 4, 0, 1310759, 4, 0, 1310760, 4, 0, 1245224, 4, 0, 1245223, 4, 0, 196647, 3, 0, 262183, 3, 0, 327719, 3, 0, 393255, 3, 0, 458791, 3, 0, 458788, 3, 0, 393252, 3, 0, 327716, 3, 0, 262180, 3, 0, 196644, 3, 0, 196645, 3, 0, 196646, 3, 0, 524324, 3, 0, 524325, 3, 0, 524326, 3, 0, 524327, 3, 0, 524291, 3, 0, 524292, 3, 0, 524293, 3, 0, 524294, 3, 0, 458755, 3, 0, 393219, 3, 0, 327683, 3, 0, 262147, 3, 0, 196611, 3, 0, 196612, 3, 0, 196613, 3, 0, 196614, 3, 0, 262150, 3, 0, 327686, 3, 0, 393222, 3, 0, 458758, 3, 0, 262148, 4, 0, 327684, 4, 0, 393220, 4, 0, 458756, 4, 0, 458757, 4, 0, 393221, 4, 0, 327685, 4, 0, 262149, 4, 0, 262181, 4, 0, 327717, 4, 0, 393253, 4, 0, 458789, 4, 0, 458790, 4, 0, 393254, 4, 0, 327718, 4, 0, 262182, 4, 0, 196619, 4, 0, 262155, 4, 0, 327691, 4, 0, 393227, 4, 0, 458763, 4, 0, 196620, 4, 0, 262157, 4, 0, 327692, 4, 0, 393229, 4, 0, 458764, 4, 0, 196625, 4, 0, 196624, 4, 0, 196623, 4, 0, 262159, 4, 0, 327695, 4, 0, 393231, 4, 0, 458767, 4, 0, 458768, 4, 0, 458769, 4, 0, 327698, 4, 0, 327699, 4, 0, 327700, 4, 0, 196631, 4, 0, 196630, 4, 0, 262166, 4, 0, 327702, 4, 0, 393238, 4, 0, 458775, 4, 0, 458774, 4, 0, 458776, 4, 0, 196632, 4, 0, 196635, 4, 0, 196636, 4, 0, 196637, 4, 0, 262173, 4, 0, 327709, 4, 0, 393245, 4, 0, 458781, 4, 0, 458780, 4, 0, 458779, 4, 0, 327707, 4, 0, 327708, 4, 0, 720901, 3, 0, 720902, 3, 0, 720903, 3, 0, 720904, 3, 0, 720905, 3, 0, 720928, 3, 0, 720929, 3, 0, 720930, 3, 0, 720931, 3, 0, 720932, 3, 0, 720933, 3, 0, 983046, 3, 0, 1048582, 3, 0, 1114118, 3, 0, 1179654, 3, 0, 983047, 3, 0, 983048, 3, 0, 983049, 3, 0, 1048585, 3, 0, 1114121, 3, 0, 1179657, 3, 0, 1179656, 3, 0, 1179655, 3, 0, 1179684, 3, 0, 1179683, 3, 0, 1179682, 3, 0, 1179681, 3, 0, 983073, 3, 0, 983074, 3, 0, 983075, 3, 0, 983076, 3, 0, 1048612, 3, 0, 1114148, 3, 0, 1048609, 3, 0, 1114145, 3, 0, 1048583, 4, 0, 1048584, 4, 0, 1114120, 4, 0, 1114119, 4, 0, 1048610, 4, 0, 1048611, 4, 0, 1114147, 4, 0, 1114146, 4, 0, 1376272, 3, 0, 1310736, 3, 0, 1245200, 3, 0, 1179664, 3, 0, 1179665, 3, 0, 1179666, 3, 0, 1179667, 3, 0, 1179668, 3, 0, 1179669, 3, 0, 1179670, 3, 0, 1179671, 3, 0, 1179672, 3, 0, 655376, 3, 0, 720912, 3, 0, 786448, 3, 0, 851984, 3, 0, 917520, 3, 0, 983056, 3, 0, 655385, 3, 0, 720921, 3, 0, 786457, 3, 0, 851993, 3, 0, 917529, 3, 0, 983065, 3, 0, 1179673, 3, 0, 1245209, 3, 0, 1310745, 3, 0, 1376281, 3, 0, 655379, 3, 0, 720915, 3, 0, 786451, 3, 0, 851987, 3, 0, 917523, 3, 0, 983059, 3, 0, 655382, 3, 0, 720918, 3, 0, 786454, 3, 0, 851990, 3, 0, 917526, 3, 0, 983062, 3, 0, 851985, 4, 0, 851986, 4, 0, 720916, 4, 0, 720917, 4, 0, 917527, 4, 0, 917528, 4, 0)
 
 [node name="SpawnLocations" type="Node2D" parent="."]
-position = Vector2(1887, 195)
-
-[node name="Marker2D2" type="Marker2D" parent="SpawnLocations"]
-position = Vector2(-1122, 210)
-
-[node name="Marker2D4" type="Marker2D" parent="SpawnLocations"]
-position = Vector2(-1122, 1020)
+position = Vector2(169, 252)
 
 [node name="Marker2D7" type="Marker2D" parent="SpawnLocations"]
-position = Vector2(1038, 1020)
+position = Vector2(1654, 425)
 
 [node name="Marker2D8" type="Marker2D" parent="SpawnLocations"]
-position = Vector2(1038, 210)
+position = Vector2(3184, -65)
+
+[node name="Marker2D9" type="Marker2D" parent="SpawnLocations"]
+position = Vector2(-6, -71)
 
 [node name="Tank_spawn" parent="." instance=ExtResource("2_prab3")]
-position = Vector2(1887, 812)
+position = Vector2(1785, 591)
 scale = Vector2(0.5, 0.5)
 
 [node name="Tank" parent="." instance=ExtResource("6_bq5sp")]
@@ -912,6 +925,23 @@ position = Vector2(1762, -231)
 tilemap = NodePath("../../TileMap")
 
 [node name="Bullets" type="Node2D" parent="."]
+
+[node name="Flag" parent="." instance=ExtResource("8_fnjvn")]
+position = Vector2(1644, 1867)
+
+[node name="EnemyFlag" parent="." instance=ExtResource("9_qn5lx")]
+position = Vector2(3686, 237)
+
+[node name="EnemyFlag3" parent="." instance=ExtResource("9_qn5lx")]
+position = Vector2(1833, 671)
+
+[node name="EnemyFlag2" parent="." instance=ExtResource("9_qn5lx")]
+position = Vector2(169, 166)
+
+[node name="PauseScene" parent="." instance=ExtResource("10_3u5fd")]
+visible = false
+
+[node name="player_health" parent="." instance=ExtResource("11_c0en5")]
 
 [connection signal="tank_spawn" from="Tank_spawn" to="." method="_on_tank_spawn_tank_spawn"]
 [connection signal="press_shoot" from="Tank" to="." method="_on_tank_press_shoot"]

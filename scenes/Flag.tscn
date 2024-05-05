@@ -1,5 +1,18 @@
-[gd_scene format=3 uid="uid://d2vkqs110y4o6"]
+[gd_scene load_steps=4 format=3 uid="uid://r03q1fmt50iw"]
 
-[node name="Flag" type="Area2D"]
+[ext_resource type="Script" path="res://scripts/flag.gd" id="1_5rsvf"]
+[ext_resource type="Texture2D" uid="uid://dnsa24ruyvfin" path="res://assets/Sprites/bitmap2.png" id="1_uimm1"]
 
-[node name="flag_img" type="Sprite2D" parent="."]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_21uf7"]
+size = Vector2(112, 150.5)
+
+[node name="Flag" type="StaticBody2D"]
+script = ExtResource("1_5rsvf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.564706)
+texture = ExtResource("1_uimm1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -2.25)
+shape = SubResource("RectangleShape2D_21uf7")

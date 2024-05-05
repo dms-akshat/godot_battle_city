@@ -12,6 +12,7 @@ func _process(delta):
 func _on_body_entered(body):
 	if "break_tile" in body:
 		body.break_tile()
-	if "hit" in body:
-		body.hit()
+	if "enemy_hit" in body:
+		body.enemy_hit()
 	queue_free()
+	

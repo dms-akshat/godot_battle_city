@@ -1,20 +1,22 @@
 [gd_scene load_steps=4 format=3 uid="uid://bjj51kprpc5o5"]
 
 [ext_resource type="Script" path="res://scripts/bullet2.gd" id="1_mqcp4"]
-[ext_resource type="Texture2D" uid="uid://crlf64u3bxsrk" path="res://assets/projectiles/blue.png" id="2_on8ep"]
+[ext_resource type="Texture2D" uid="uid://bni3ahxldhjx8" path="res://assets/Sprites/bullet5.png" id="2_x0lr2"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yn5ey"]
-height = 68.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5sdof"]
+radius = 6.0
+height = 56.0
 
-[node name="Bullet" type="Area2D"]
+[node name="enemy_bullet" type="Area2D"]
 script = ExtResource("1_mqcp4")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, -42)
-shape = SubResource("CapsuleShape2D_yn5ey")
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(1, 1.01868)
-texture = ExtResource("2_on8ep")
+rotation = 1.5708
+scale = Vector2(0.197, 0.16278)
+texture = ExtResource("2_x0lr2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_5sdof")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

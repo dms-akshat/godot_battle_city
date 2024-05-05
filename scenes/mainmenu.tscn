@@ -1,9 +1,32 @@
-[gd_scene load_steps=3 format=3 uid="uid://vuig1byvunqr"]
+[gd_scene load_steps=13 format=3 uid="uid://vuig1byvunqr"]
 
 [ext_resource type="Script" path="res://scripts/mainmenu.gd" id="1_qbswg"]
+[ext_resource type="FontFile" uid="uid://bbkwoou243ti1" path="res://assets/fonts/font-7x7.ttf" id="2_7467h"]
+[ext_resource type="Texture2D" uid="uid://6jiuc1oogq05" path="res://assets/background/solid_black_background.png" id="2_xvsxd"]
+[ext_resource type="FontFile" uid="uid://rwcqci1rr3dx" path="res://assets/fonts/ARCADECLASSIC.TTF" id="4_fm6oo"]
+[ext_resource type="Texture2D" uid="uid://dm0fiim3wkeg2" path="res://assets/fonts/MODE 1.png" id="5_eh8bp"]
+[ext_resource type="Texture2D" uid="uid://brfoohs2hmidc" path="res://assets/fonts/MODE 2.png" id="6_pdb8h"]
+
+[sub_resource type="Theme" id="Theme_0afyi"]
+default_font = ExtResource("2_7467h")
 
 [sub_resource type="LabelSettings" id="LabelSettings_ro4a5"]
-font_size = 25
+font_size = 149
+font_color = Color(1, 0, 0, 1)
+outline_size = 4
+outline_color = Color(0.835294, 0.870588, 0.372549, 1)
+
+[sub_resource type="Theme" id="Theme_f2vrh"]
+default_font = ExtResource("4_fm6oo")
+default_font_size = 43
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3p2fy"]
+
+[sub_resource type="Theme" id="Theme_rcg2f"]
+default_font = ExtResource("2_7467h")
+default_font_size = 20
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pa8n5"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -18,20 +41,31 @@ focus_next = NodePath("VBoxContainer/Options")
 focus_previous = NodePath("VBoxContainer/Options")
 script = ExtResource("1_qbswg")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(160, -19)
+texture = ExtResource("2_xvsxd")
+region_enabled = true
+region_rect = Rect2(-8531.79, -4521.48, 19705.6, 8680.53)
+
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 10
+anchors_preset = -1
+anchor_top = 0.02
 anchor_right = 1.0
+anchor_bottom = 0.02
 offset_top = 20.0
 offset_bottom = 58.0
 grow_horizontal = 2
 scale = Vector2(1, 2)
+alignment = 1
 
 [node name="Label" type="Label" parent="VBoxContainer2"]
 layout_mode = 2
+theme = SubResource("Theme_0afyi")
 text = "BATTLE TANKS"
 label_settings = SubResource("LabelSettings_ro4a5")
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -40,26 +74,54 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -190.0
-offset_top = -102.0
-offset_right = -4.0
-offset_bottom = 11.0
+offset_left = -530.0
+offset_top = -228.0
+offset_right = 361.0
+offset_bottom = 152.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(2, 2)
+scale = Vector2(1.2, 1.2)
+theme_override_constants/separation = 40
 alignment = 1
 
 [node name="Start" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-text = "START"
+size_flags_horizontal = 4
+focus_neighbor_top = NodePath("../Options")
+focus_neighbor_bottom = NodePath("../Options")
+focus_next = NodePath("../Options")
+focus_previous = NodePath("../Options")
+theme = SubResource("Theme_f2vrh")
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_color = Color(0.701961, 0.631373, 0.376471, 1)
+theme_override_colors/font_pressed_color = Color(0.917647, 0.960784, 0.545098, 1)
+theme_override_colors/font_focus_color = Color(0.815686, 0.811765, 0.290196, 1)
+theme_override_colors/icon_normal_color = Color(0.631373, 0.631373, 0.631373, 1)
+theme_override_colors/icon_pressed_color = Color(0.827451, 0.827451, 0.827451, 1)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.631373, 0.631373, 0.631373, 1)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3p2fy")
+icon = ExtResource("5_eh8bp")
+icon_alignment = 1
 
 [node name="Options" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 focus_neighbor_top = NodePath("../Start")
 focus_neighbor_bottom = NodePath("../Start")
 focus_next = NodePath("../Start")
 focus_previous = NodePath("../Start")
-text = "OPTIONS"
+theme = SubResource("Theme_rcg2f")
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_color = Color(0.631373, 0.631373, 0.631373, 1)
+theme_override_colors/icon_normal_color = Color(0.631373, 0.631373, 0.631373, 1)
+theme_override_colors/icon_pressed_color = Color(0.827451, 0.827451, 0.827451, 1)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.631373, 0.631373, 0.631373, 1)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_pa8n5")
+icon = ExtResource("6_pdb8h")
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_options_pressed"]

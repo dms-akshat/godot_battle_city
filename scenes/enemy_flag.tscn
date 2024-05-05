@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://dg3ksylqa21q5"]
+
+[ext_resource type="PackedScene" uid="uid://r03q1fmt50iw" path="res://scenes/Flag.tscn" id="1_kb15k"]
+[ext_resource type="Texture2D" uid="uid://c2hamrxobtn4x" path="res://assets/Sprites/bitmap3.png" id="2_q2fi6"]
+[ext_resource type="Script" path="res://scripts/enemy_flag.gd" id="2_qt8jl"]
+
+[node name="EnemyFlag" instance=ExtResource("1_kb15k")]
+script = ExtResource("2_qt8jl")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_q2fi6")

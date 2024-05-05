@@ -4,6 +4,4 @@ signal tank_spawn()
 func _ready():
 	$Timer.start()
 func _on_timer_timeout():
-		tank_spawn.emit()
-	
-	
+	tank_spawn.emit()
