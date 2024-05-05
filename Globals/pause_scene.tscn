@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://cj0qtva3dfgew"]
 
 [ext_resource type="Script" path="res://Globals/pause_scene.gd" id="1_iv45s"]
-[ext_resource type="FontFile" uid="uid://bbkwoou243ti1" path="res://assets/fonts/font-7x7.ttf" id="2_enxco"]
+[ext_resource type="FontFile" uid="uid://dwubj0lcsotus" path="res://assets/fonts/font-7x7.ttf" id="2_enxco"]
 
 [sub_resource type="Theme" id="Theme_lcncn"]
 default_font = ExtResource("2_enxco")

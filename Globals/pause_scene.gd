@@ -18,6 +18,10 @@ func _on_button_pressed():
 
 func _on_button_2_pressed():
 	Globals.pause_game()
+	Globals.score=500
+	Globals.tank_destroyed=0
+	Globals.en_flags=3
+	Globals.player_health=40
 	TransitionLayer.change_scene("res://scenes/Level_1.tscn")
 	await get_tree().create_timer(1.0).timeout
 	get_tree().reload_current_scene()
@@ -27,4 +31,8 @@ func _on_button_2_pressed():
 
 func _on_button_3_pressed():
 	Globals.pause_game()
+	Globals.score=500
+	Globals.tank_destroyed=0
+	Globals.en_flags=3
+	Globals.player_health=40
 	TransitionLayer.change_scene("res://scenes/mainmenu.tscn")

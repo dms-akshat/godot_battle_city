@@ -15,6 +15,7 @@ func _on_button_pressed():
 	Globals.score=500
 	Globals.tank_destroyed=0
 	Globals.en_flags=3
+	Globals.player_health=40
 
 
 func _on_button_2_pressed():

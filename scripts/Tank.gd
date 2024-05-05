@@ -81,8 +81,7 @@ func hit():
 			Globals.respawn()
 			get_tree().paused=true
 		else:
-			while Globals.score>0:
-				Globals.score-=1
+			Globals.scrore=0
 			Globals.game_over.emit()
 		
 	#print(Globals.player_health)
