@@ -1,6 +1,6 @@
 extends Area2D
 
-const velocity = 700
+var velocity = Globals.player_bullet_speed
 var aim: Vector2
 
 func _process(delta):

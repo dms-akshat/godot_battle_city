@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+class_name Enemy
 var speed: int = 200
 var direction: Vector2
 var is_turning:bool=false
@@ -39,7 +39,7 @@ func enemy_hit():
 	if enemy_health<=0:
 		Globals.score+=50
 		Globals.tank_destroyed+=1
-		queue_free()
+		$"..".queue_free()
 
 func _on_bullet_timer_timeout():
 	if not Globals.is_game_over:

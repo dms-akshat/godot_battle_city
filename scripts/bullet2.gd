@@ -1,4 +1,5 @@
 extends Area2D
+class_name EnemyBullet
 
 const velocity = 700
 var aim: Vector2
@@ -15,3 +16,4 @@ func _on_body_entered(body):
 	if "hit" in body:
 		body.hit()
 	queue_free()
+

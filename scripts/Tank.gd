@@ -72,7 +72,10 @@ func _on_shoot_timer_timeout():
 
 func hit():
 	if Globals.player_health>0:
-		Globals.player_health-=10
+	#	if Globals.is_enemy_boss_bullet:
+	#		Globals.player_health-=maxi(20,20+(Globals.tank_destroyed/10)*10)
+	#	else:
+	#		Globals.player_health-=10
 		#$on_screen_stuff.player_health.value-=10
 		Globals.blink_tween($TankSprite)
 	if Globals.player_health<=0:
@@ -81,7 +84,7 @@ func hit():
 			Globals.respawn()
 			get_tree().paused=true
 		else:
-			Globals.scrore=0
+			Globals.score=0
 			Globals.game_over.emit()
 		
 	#print(Globals.player_health)
@@ -94,3 +97,7 @@ func _on_score_reducer_timeout():
 	if Globals.score>0:
 		Globals.score-=1
 	$score_reducer.start()
+
+func power_up():
+	Globals.player_bullet_speed+=100
+	SPEED=mini(450,SPEED+10)

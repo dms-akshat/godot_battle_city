@@ -5,7 +5,7 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5sdof"]
 radius = 6.0
-height = 56.0
+height = 74.6667
 
 [node name="enemy_bullet" type="Area2D"]
 script = ExtResource("1_mqcp4")

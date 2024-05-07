@@ -1,0 +1,54 @@
+[gd_scene load_steps=6 format=3 uid="uid://dk0ljg0plr57v"]
+
+[ext_resource type="Script" path="res://scenes/power_up.gd" id="1_25251"]
+[ext_resource type="Texture2D" uid="uid://cbf7n70vvptl6" path="res://assets/Sprites/orb2.png" id="2_77hn8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dewa4"]
+radius = 66.1891
+
+[sub_resource type="Animation" id="Animation_rkuju"]
+resource_name = "orb_blink"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j5vgy"]
+_data = {
+"orb_blink": SubResource("Animation_rkuju")
+}
+
+[node name="PowerUp" type="Area2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_25251")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_77hn8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CircleShape2D_dewa4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_j5vgy")
+}
+autoplay = "orb_blink"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

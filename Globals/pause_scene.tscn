@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://cj0qtva3dfgew"]
 
 [ext_resource type="Script" path="res://Globals/pause_scene.gd" id="1_iv45s"]
-[ext_resource type="FontFile" uid="uid://dwubj0lcsotus" path="res://assets/fonts/font-7x7.ttf" id="2_enxco"]
+[ext_resource type="FontFile" uid="uid://dfkkcvij2srn7" path="res://assets/fonts/font-7x7.ttf" id="2_enxco"]
 
 [sub_resource type="Theme" id="Theme_lcncn"]
 default_font = ExtResource("2_enxco")
@@ -12,7 +12,7 @@ font_size = 90
 [sub_resource type="Theme" id="Theme_x2nmi"]
 default_font = ExtResource("2_enxco")
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3ysgi"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gos27"]
 
 [sub_resource type="Theme" id="Theme_y5eya"]
 default_font = ExtResource("2_enxco")
@@ -66,19 +66,27 @@ alignment = 1
 custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
 size_flags_horizontal = 4
+focus_neighbor_top = NodePath("../Button3")
+focus_neighbor_bottom = NodePath("../Button2")
+focus_next = NodePath("../Button2")
+focus_previous = NodePath("../Button3")
 theme = SubResource("Theme_x2nmi")
 theme_type_variation = &"FlatButton"
-theme_override_colors/font_color = Color(0.772549, 0.772549, 0.772549, 1)
-theme_override_styles/focus = SubResource("StyleBoxEmpty_3ysgi")
+theme_override_colors/font_color = Color(0.347817, 0.347817, 0.347817, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_gos27")
 text = "RESUME"
 
 [node name="Button2" type="Button" parent="VBoxContainer2"]
 custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
 size_flags_horizontal = 4
+focus_neighbor_top = NodePath("../Button")
+focus_neighbor_bottom = NodePath("../Button3")
+focus_next = NodePath("../Button3")
+focus_previous = NodePath("../Button")
 theme = SubResource("Theme_y5eya")
 theme_type_variation = &"FlatButton"
-theme_override_colors/font_color = Color(0.772549, 0.772549, 0.772549, 1)
+theme_override_colors/font_color = Color(0.00392157, 0.00392157, 0.00392157, 1)
 theme_override_styles/focus = SubResource("StyleBoxEmpty_6kfae")
 text = "RESTART"
 
@@ -86,9 +94,13 @@ text = "RESTART"
 custom_minimum_size = Vector2(110, 0)
 layout_mode = 2
 size_flags_horizontal = 4
+focus_neighbor_top = NodePath("../Button2")
+focus_neighbor_bottom = NodePath("../Button")
+focus_next = NodePath("../Button")
+focus_previous = NodePath("../Button2")
 theme = SubResource("Theme_fw2gf")
 theme_type_variation = &"FlatButton"
-theme_override_colors/font_color = Color(0.772549, 0.772549, 0.772549, 1)
+theme_override_colors/font_color = Color(0.00392157, 0.00392157, 0.00392157, 1)
 theme_override_styles/focus = SubResource("StyleBoxEmpty_6ttdd")
 text = "MAIN MENU"
 

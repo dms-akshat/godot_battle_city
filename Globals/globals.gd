@@ -1,17 +1,30 @@
 extends Node
 
 var is_game_over:bool=false
-var working_scene:PackedScene=preload("res://Level_1.tscn")
+var is_main_menu:bool=true
+#var working_scene:PackedScene=preload("res://Level_1.tscn")
 var player_health:int=30
 signal game_over
 signal pause_pressed
+signal stat_change
 var score:int = 500
-var tank_destroyed:int = 0
+var tank_destroyed:int = 0:
+	get:
+		return tank_destroyed
+	set(value):
+		tank_destroyed=value
 var player_lives:int=1
 var en_flags:int=3
+var boss_tank_destroyed:int=0:
+	get:
+		return boss_tank_destroyed
+	set(value):
+		boss_tank_destroyed=value
+var is_enemy_boss_bullet:bool=false
+var player_bullet_speed:int=600
 
 
-var current_scene: PackedScene
+#var current_scene: PackedScene
 
 func _ready():
 	process_mode=Node.PROCESS_MODE_ALWAYS
@@ -26,7 +39,7 @@ func blink_tween(body):
 
 func _input(event : InputEvent):	
 	if event.is_action_pressed("ui_cancel"):
-		if not is_game_over and get_tree().current_scene.get_index():
+		if not is_game_over and not is_main_menu:# and get_tree().current_scene.get_index():
 			pause_game()
 
 

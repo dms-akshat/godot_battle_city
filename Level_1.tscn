@@ -1,6 +1,7 @@
 [gd_scene load_steps=18 format=3 uid="uid://d4j60pxararwn"]
 
 [ext_resource type="Texture2D" uid="uid://6jiuc1oogq05" path="res://assets/background/solid_black_background.png" id="1_nbhca"]
+[ext_resource type="Script" path="res://Level_1.gd" id="1_o2xji"]
 [ext_resource type="PackedScene" uid="uid://decdthkh0yxip" path="res://scenes/tank_spawn.tscn" id="2_prab3"]
 [ext_resource type="Texture2D" uid="uid://4tervm7wi7ah" path="res://assets/all bricks.png" id="3_7k38o"]
 [ext_resource type="Texture2D" uid="uid://b3wiibw6sf1as" path="res://assets/top.png" id="4_yeolv"]
@@ -11,46 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://dg3ksylqa21q5" path="res://scenes/enemy_flag.tscn" id="9_qn5lx"]
 [ext_resource type="PackedScene" uid="uid://cj0qtva3dfgew" path="res://Globals/pause_scene.tscn" id="10_3u5fd"]
 [ext_resource type="PackedScene" uid="uid://bkc8krjkm6cx7" path="res://scenes/player_health.tscn" id="11_c0en5"]
-
-[sub_resource type="GDScript" id="GDScript_44n8n"]
-script/source = "extends Node2D
-var spawn_scene=preload(\"res://scenes/tank_spawn.tscn\")
-var bullet_scene: PackedScene=preload(\"res://scenes/bullet2.tscn\")
-var player_bullet_scene: PackedScene=preload(\"res://scenes/player_bullet.tscn\")
-#func _ready():
-	#get_viewport().size = Vector2(5000,3000)  # Adjust the size as needed
-
-func _ready():
-	Globals.connect(\"game_over\", _on_game_over)
-
-func _process(delta):
-	pass
-	
-func _on_tank_spawn_tank_spawn():
-	var spawn_locations=get_node(\"SpawnLocations\")
-	var children=spawn_locations.get_children()
-	var enemy=spawn_scene.instantiate()
-	var selected_pos=children[randi()%children.size()]
-	if $Tank_spawn.get_child_count()<=6 :
-		$Tank_spawn.add_child(enemy)
-		enemy.global_position=selected_pos.global_position
-
-
-func _on_tank_press_shoot(direction, pos):
-	#print(\"Fire receive\")
-	var bullet=player_bullet_scene.instantiate() as Area2D
-	bullet.global_position=pos
-	bullet.rotation_degrees=rad_to_deg(direction.angle())
-	bullet.aim=direction
-	$Bullets.add_child(bullet)
-
-func _on_game_over():
-	print('game over')
-	Globals.is_game_over=true
-	await get_tree().create_timer(2.0).timeout
-	get_tree().change_scene_to_file(\"res://scenes/game_over.tscn\")
-	
-"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iqxv2"]
 resource_name = "Walls"
@@ -446,7 +407,7 @@ sources/4 = SubResource("TileSetAtlasSource_gej3s")
 
 [node name="Level_1" type="Node2D"]
 process_mode = 1
-script = SubResource("GDScript_44n8n")
+script = ExtResource("1_o2xji")
 
 [node name="Area2D" type="Area2D" parent="."]
 

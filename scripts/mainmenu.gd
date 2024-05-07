@@ -25,9 +25,12 @@ func _process(delta):
 func _on_start_pressed():
 	TransitionLayer.change_scene("res://Level_1.tscn")
 	Globals.is_game_over=false
+	Globals.is_main_menu=false
 	#pass # Replace with function body.
 
 
 func _on_options_pressed():
-	print('change scene2')
+	TransitionLayer.change_scene("res://level_2.tscn")
+	Globals.is_game_over=false
+	Globals.is_main_menu=false
 	#pass # Replace with function body.

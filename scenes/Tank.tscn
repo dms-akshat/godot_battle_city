@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://rnxmwfu7lte7"]
+[gd_scene load_steps=4 format=3 uid="uid://rnxmwfu7lte7"]
 
 [ext_resource type="Script" path="res://scripts/Tank.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://bh8n5av5qqf72" path="res://assets/player.png" id="2_7oxhd"]
-[ext_resource type="PackedScene" uid="uid://bkc8krjkm6cx7" path="res://scenes/player_health.tscn" id="3_kvqtp"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(174, 135)
@@ -35,8 +34,6 @@ wait_time = 5.0
 wait_time = 0.2
 
 [node name="score_reducer" type="Timer" parent="."]
-
-[node name="on_screen_stuff" parent="." instance=ExtResource("3_kvqtp")]
 
 [connection signal="press_shoot" from="." to="." method="_on_press_shoot"]
 [connection signal="timeout" from="ShootTimer" to="." method="_on_timer_timeout"]
