@@ -1,7 +1,6 @@
 extends CanvasLayer
 
 func _ready():
-	
 	hide()
 	Globals.connect("pause_pressed", _on_pause_pressed)
 	
