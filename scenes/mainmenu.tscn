@@ -1,11 +1,11 @@
 [gd_scene load_steps=13 format=3 uid="uid://vuig1byvunqr"]
 
 [ext_resource type="Script" path="res://scripts/mainmenu.gd" id="1_qbswg"]
-[ext_resource type="FontFile" uid="uid://dwubj0lcsotus" path="res://assets/fonts/font-7x7.ttf" id="2_7467h"]
+[ext_resource type="FontFile" uid="uid://dfkkcvij2srn7" path="res://assets/fonts/font-7x7.ttf" id="2_7467h"]
 [ext_resource type="Texture2D" uid="uid://6jiuc1oogq05" path="res://assets/background/solid_black_background.png" id="2_xvsxd"]
-[ext_resource type="FontFile" uid="uid://cgwm142ph3oq4" path="res://assets/fonts/ARCADECLASSIC.TTF" id="4_fm6oo"]
-[ext_resource type="Texture2D" uid="uid://bx8k1bolju6ll" path="res://assets/fonts/MODE 1.png" id="5_eh8bp"]
-[ext_resource type="Texture2D" uid="uid://bsfl072rsq1vl" path="res://assets/fonts/MODE 2.png" id="6_pdb8h"]
+[ext_resource type="FontFile" uid="uid://bh3ifddqx5ac6" path="res://assets/fonts/ARCADECLASSIC.TTF" id="4_fm6oo"]
+[ext_resource type="Texture2D" uid="uid://bbw8vuineikou" path="res://assets/fonts/MODE 1.png" id="5_eh8bp"]
+[ext_resource type="Texture2D" uid="uid://d2obwp5wbobbi" path="res://assets/fonts/MODE 2.png" id="6_pdb8h"]
 
 [sub_resource type="Theme" id="Theme_0afyi"]
 default_font = ExtResource("2_7467h")

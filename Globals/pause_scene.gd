@@ -1,14 +1,13 @@
 extends CanvasLayer
 
 func _ready():
-	
 	hide()
 	Globals.connect("pause_pressed", _on_pause_pressed)
 	
 func _on_pause_pressed():
 	if not visible:
 		show()
-		#$VBoxContainer2/Button.grab_focus()
+		$VBoxContainer2/Button.grab_focus()
 	else:
 		hide()
 
@@ -36,3 +35,4 @@ func _on_button_3_pressed():
 	Globals.en_flags=3
 	Globals.player_health=40
 	TransitionLayer.change_scene("res://scenes/mainmenu.tscn")
+	Globals.is_main_menu=true

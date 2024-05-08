@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://e044lwd47xs8"]
+
+[ext_resource type="PackedScene" uid="uid://cj8axuwjetqvx" path="res://base_level.tscn" id="1_yltk8"]
+[ext_resource type="Script" path="res://level_2.gd" id="2_ns8ra"]
+[ext_resource type="PackedScene" uid="uid://coaamewdg55yw" path="res://scenes/tank_container.tscn" id="3_4n2mp"]
+[ext_resource type="PackedScene" uid="uid://c1v07u344sbjg" path="res://scenes/mode_2_player_health.tscn" id="4_6e2mi"]
+
+[node name="Level_2" instance=ExtResource("1_yltk8")]
+script = ExtResource("2_ns8ra")
+
+[node name="background_img" parent="Area2D" index="0"]
+position = Vector2(72, -77)
+
+[node name="TileMap" parent="." index="1"]
+layer_0/tile_data = PackedInt32Array(0, 4, 0, 65536, 4, 0, 131072, 4, 0, 196608, 4, 0, 262144, 4, 0, 327680, 4, 0, 393216, 4, 0, 458752, 4, 0, 524288, 4, 0, 589824, 4, 0, 655360, 4, 0, 720896, 4, 0, 786432, 4, 0, 851968, 4, 0, 917504, 4, 0, 983040, 4, 0, 1048576, 4, 0, 1114112, 4, 0, 1179648, 4, 0, 1245184, 4, 0, 1310720, 4, 0, 1, 4, 0, 2, 4, 0, 3, 4, 0, 4, 4, 0, 5, 4, 0, 6, 4, 0, 7, 4, 0, 24, 4, 0, 25, 4, 0, 26, 4, 0, 27, 4, 0, 28, 4, 0, 29, 4, 0, 30, 4, 0, 31, 4, 0, 32, 4, 0, 33, 4, 0, 34, 4, 0, 35, 4, 0, 36, 4, 0, 37, 4, 0, 38, 4, 0, 39, 4, 0, 40, 4, 0, 41, 4, 0, 42, 4, 0, 8, 4, 0, 9, 4, 0, 10, 4, 0, 11, 4, 0, 12, 4, 0, 13, 4, 0, 14, 4, 0, 15, 4, 0, 16, 4, 0, 17, 4, 0, 18, 4, 0, 19, 4, 0, 23, 4, 0, 22, 4, 0, 21, 4, 0, 20, 4, 0, 65578, 4, 0, 131114, 4, 0, 196650, 4, 0, 262186, 4, 0, 327722, 4, 0, 393258, 4, 0, 458794, 4, 0, 524330, 4, 0, 589866, 4, 0, 655402, 4, 0, 720938, 4, 0, 786474, 4, 0, 852010, 4, 0, 917546, 4, 0, 983082, 65540, 0, 1048618, 65540, 0, 1114154, 4, 0, 1179690, 4, 0, 1245226, 4, 0, 1310762, 4, 0, 1441792, 4, 0, 1441793, 4, 0, 1441794, 4, 0, 1441795, 4, 0, 1441796, 4, 0, 1441797, 4, 0, 1441798, 4, 0, 1441799, 4, 0, 1441800, 4, 0, 1441801, 4, 0, 1441802, 4, 0, 1441803, 4, 0, 1441804, 4, 0, 1441805, 4, 0, 1441806, 4, 0, 1441807, 4, 0, 1441808, 4, 0, 1441809, 4, 0, 1441810, 4, 0, 1441811, 4, 0, 1441812, 4, 0, 1441813, 4, 0, 1441814, 4, 0, 1441815, 4, 0, 1441816, 4, 0, 1441817, 4, 0, 1441818, 4, 0, 1441819, 4, 0, 1441820, 4, 0, 1441821, 4, 0, 1441822, 4, 0, 1441823, 4, 0, 1441824, 4, 0, 1441825, 4, 0, 1441826, 4, 0, 1441827, 4, 0, 1441828, 4, 0, 1441829, 4, 0, 1441830, 4, 0, 1441831, 4, 0, 1441832, 4, 0, 1441833, 4, 0, 1441834, 4, 0, 1376298, 4, 0, 1376256, 4, 0)
+
+[node name="PowerUpContainer" type="Node2D" parent="." index="5"]
+
+[node name="TankContainer" parent="." index="6" instance=ExtResource("3_4n2mp")]
+scale = Vector2(0.5, 0.5)
+
+[node name="Timer2" type="Timer" parent="TankContainer" index="0"]
+wait_time = 4.0
+
+[node name="mode_2_on_screen_stuff" parent="." index="9" instance=ExtResource("4_6e2mi")]
+
+[connection signal="boss_created" from="TankContainer" to="." method="_on_tank_container_boss_created"]
+[connection signal="timeout" from="TankContainer/Timer2" to="TankContainer" method="_on_timer_2_timeout"]
