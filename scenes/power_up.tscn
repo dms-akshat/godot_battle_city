@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dk0ljg0plr57v"]
 
-[ext_resource type="Script" path="res://scenes/power_up.gd" id="1_25251"]
+[ext_resource type="Script" path="res://scripts/power_up.gd" id="1_25251"]
 [ext_resource type="Texture2D" uid="uid://cbf7n70vvptl6" path="res://assets/Sprites/orb2.png" id="2_77hn8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dewa4"]

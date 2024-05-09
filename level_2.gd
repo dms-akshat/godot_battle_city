@@ -5,7 +5,6 @@ var power_up_scene:PackedScene=preload("res://scenes/power_up.tscn")
 func _ready():
 	Globals.connect("game_over", _on_game_over)
 	Globals.connect("boss_destroyed", _on_boss_destroyed)
-	#EnemyBoss.connect("boss_destroyed", _on_boss_destroyed)
 	Globals.score=0
 	Globals.player_health=100
 
@@ -20,7 +19,6 @@ func _on_tank_container_boss_created():
 	var power_up=power_up_scene.instantiate()
 	var children=$SpawnLocations.get_children()
 	var selected_pos=children[randi()%children.size()]
-	#print(selected_pos)
 	power_up.global_position=selected_pos.global_position
 	$PowerUpContainer.add_child(power_up)
 	

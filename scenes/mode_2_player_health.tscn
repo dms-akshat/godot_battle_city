@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://c1v07u344sbjg"]
 
-[ext_resource type="Script" path="res://scenes/mode_2_player_health.gd" id="1_0jvy5"]
+[ext_resource type="Script" path="res://scripts/mode_2_player_health.gd" id="1_0jvy5"]
 [ext_resource type="Texture2D" uid="uid://co3pvi8tnvtcx" path="res://assets/Sprites/enemy_red.png" id="2_t6uey"]
 [ext_resource type="FontFile" uid="uid://dfkkcvij2srn7" path="res://assets/fonts/font-7x7.ttf" id="3_ibe1s"]
 

@@ -45,14 +45,11 @@ func _on_bullet_timer_timeout():
 	if not Globals.is_game_over:
 		var bullet= bullet_scene.instantiate() as Area2D
 		var posx=$Bullet_Marker.position.x
-		#print(direction)
 		var pos=(global_position+direction*posx)
 		bullet.global_position=pos
 		bullet.aim=direction
 		var bullet_sprite= bullet.get_node("Sprite2D")
 		bullet.look_at(bullet.aim + bullet_sprite.global_position)
-		#bullet.global_rotation_degrees+=90
-		
 		$Bullets_Fired.add_child(bullet)
 		$"../Bullet_Timer".start()
 		
