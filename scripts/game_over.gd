@@ -18,6 +18,7 @@ func _on_button_pressed():
 	Globals.tank_destroyed=0
 	Globals.en_flags=3
 	Globals.player_health=40
+	Globals.is_mode_2=false
 
 
 func _on_button_2_pressed():

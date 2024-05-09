@@ -5,7 +5,7 @@ var boss_enemy_scene:PackedScene=preload("res://scenes/enemy_boss.tscn")
 var can_boss_enemy:bool=false
 var n:int:
 	set(value):
-		if value>n:
+		if value>n*2:
 			can_boss_enemy=true
 		n=value
 		
@@ -47,7 +47,7 @@ func _on_timer_2_timeout():
 		enemy.global_position=selected_pos.global_position
 		$".".add_child(enemy)
 	
-	if Globals.tank_destroyed>=5 and can_boss_enemy:
+	if Globals.tank_destroyed>=10 and can_boss_enemy:
 		var boss_enemy=boss_enemy_scene.instantiate()
 		var children=$"../SpawnLocations".get_children()
 		var selected_pos=children[randi()%children.size()]

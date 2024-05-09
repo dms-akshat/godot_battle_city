@@ -1,12 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://c1v07u344sbjg"]
+[gd_scene load_steps=6 format=3 uid="uid://c1v07u344sbjg"]
 
 [ext_resource type="Script" path="res://scenes/mode_2_player_health.gd" id="1_0jvy5"]
 [ext_resource type="Texture2D" uid="uid://co3pvi8tnvtcx" path="res://assets/Sprites/enemy_red.png" id="2_t6uey"]
+[ext_resource type="FontFile" uid="uid://dfkkcvij2srn7" path="res://assets/fonts/font-7x7.ttf" id="3_ibe1s"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_wgwg6"]
+font = ExtResource("3_ibe1s")
 font_size = 101
 
 [sub_resource type="LabelSettings" id="LabelSettings_rokp5"]
+font = ExtResource("3_ibe1s")
 font_size = 50
 
 [node name="mode_2_on_screen_stuff" type="CanvasLayer"]
@@ -19,8 +22,7 @@ offset_left = 2766.0
 offset_top = 150.0
 offset_right = 3166.0
 offset_bottom = 210.0
-max_value = 40.0
-value = 40.0
+value = 100.0
 show_percentage = false
 metadata/_edit_use_anchors_ = true
 
@@ -59,9 +61,9 @@ label_settings = SubResource("LabelSettings_wgwg6")
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
 anchors_preset = -1
 anchor_left = 0.05
-anchor_top = 0.04
+anchor_top = 0.07
 anchor_right = 0.05
-anchor_bottom = 0.04
+anchor_bottom = 0.07
 offset_top = 141.0
 offset_right = 408.0
 offset_bottom = 278.0

@@ -11,7 +11,8 @@ var health_bar
 
 var direction: Vector2 = Vector2.UP
 func _ready():
-	$score_reducer.start()
+	if not Globals.is_mode_2:
+		$score_reducer.start()
 	can_shoot=true
 	can_rapid=true
 	can_rapid_fire=true
@@ -84,7 +85,8 @@ func hit():
 			Globals.respawn()
 			get_tree().paused=true
 		else:
-			Globals.score=0
+			if not Globals.is_mode_2:
+				Globals.score=0
 			Globals.game_over.emit()
 		
 	#print(Globals.player_health)
@@ -94,10 +96,16 @@ func _on_rapid_fire_timer_timeout():
 
 
 func _on_score_reducer_timeout():
+
 	if Globals.score>0:
 		Globals.score-=1
 	$score_reducer.start()
 
 func power_up():
-	Globals.player_bullet_speed+=100
-	SPEED=mini(450,SPEED+10)
+	Globals.player_bullet_speed+=150
+	SPEED=mini(500,SPEED+30)
+	
+func health_power_up():
+	Globals.player_health+=50+10*(Globals.boss_tank_destroyed)
+	if Globals.player_health>100:
+		Globals.player_health=100

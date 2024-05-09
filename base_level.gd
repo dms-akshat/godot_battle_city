@@ -8,6 +8,7 @@ var player_bullet_scene: PackedScene=preload("res://scenes/player_bullet.tscn")
 
 func _ready():
 	Globals.connect("game_over", _on_game_over)
+	#Globals.player_health=40
 
 func _process(delta):
 	pass

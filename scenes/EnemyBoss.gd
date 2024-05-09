@@ -1,5 +1,7 @@
 extends Enemy
+#signal boss_destroted
 
+var power_up_scene:PackedScene=preload("res://scenes/health_power_up.tscn")
 func _ready():
 	speed=120
 	bullet_scene=preload("res://scenes/enemy_boss_bullet.tscn")
@@ -20,10 +22,12 @@ func enemy_hit():
 		enemy_health-=10
 		Globals.blink_tween(%EnemySprite)
 	if enemy_health<=0:
-		Globals.score+=(50+(50*(Globals.boss_tank_destroyed+1)))
+		Globals.score+=(100+(50*(Globals.boss_tank_destroyed)))
 		#Globals.tank_destroyed+=1
 		Globals.boss_tank_destroyed+=1
+		Globals.boss_destroyed.emit(global_position)
 		$"..".queue_free()
+		#boss_destroted.emit()
 	$EnemySprite/ProgressBar.value=enemy_health
 
 func _on_bullet_timer_timeout():

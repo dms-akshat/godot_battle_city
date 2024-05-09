@@ -30,6 +30,7 @@ func _on_start_pressed():
 
 
 func _on_options_pressed():
+	Globals.is_mode_2=true
 	TransitionLayer.change_scene("res://level_2.tscn")
 	Globals.is_game_over=false
 	Globals.is_main_menu=false
