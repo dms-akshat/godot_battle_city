@@ -22,7 +22,13 @@ func _on_button_pressed():
 
 
 func _on_button_2_pressed():
-	TransitionLayer.change_scene("res://Level_1.tscn")
+	if not Globals.is_mode_2:
+		if not Globals.is_mode_3:
+			TransitionLayer.change_scene("res://Level_1.tscn")
+		else:
+			TransitionLayer.change_scene("res://Level_3.tscn")
+	else:
+		TransitionLayer.change_scene("res://Level_2.tscn")
 	Globals.is_game_over=false
 	Globals.score=500
 	Globals.tank_destroyed=0

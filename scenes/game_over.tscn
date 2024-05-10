@@ -1,8 +1,8 @@
 [gd_scene load_steps=14 format=3 uid="uid://c21bi0swmoeby"]
 
 [ext_resource type="Script" path="res://scripts/game_over.gd" id="1_2u51w"]
-[ext_resource type="FontFile" uid="uid://dfkkcvij2srn7" path="res://assets/fonts/font-7x7.ttf" id="2_ftmiy"]
-[ext_resource type="FontFile" uid="uid://bx3deu26ukayt" path="res://assets/fonts/digits-4x7.ttf" id="3_i5fx6"]
+[ext_resource type="FontFile" uid="uid://jsj0866gpspa" path="res://assets/fonts/font-7x7.ttf" id="2_ftmiy"]
+[ext_resource type="FontFile" uid="uid://behqec3rqt7rl" path="res://assets/fonts/digits-4x7.ttf" id="3_i5fx6"]
 
 [sub_resource type="Theme" id="Theme_vr0yv"]
 default_font = ExtResource("2_ftmiy")

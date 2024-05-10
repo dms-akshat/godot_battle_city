@@ -1,11 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://vuig1byvunqr"]
+[gd_scene load_steps=16 format=3 uid="uid://vuig1byvunqr"]
 
 [ext_resource type="Script" path="res://scripts/mainmenu.gd" id="1_qbswg"]
-[ext_resource type="FontFile" uid="uid://dfkkcvij2srn7" path="res://assets/fonts/font-7x7.ttf" id="2_7467h"]
+[ext_resource type="FontFile" uid="uid://jsj0866gpspa" path="res://assets/fonts/font-7x7.ttf" id="2_7467h"]
 [ext_resource type="Texture2D" uid="uid://6jiuc1oogq05" path="res://assets/background/solid_black_background.png" id="2_xvsxd"]
-[ext_resource type="FontFile" uid="uid://bh3ifddqx5ac6" path="res://assets/fonts/ARCADECLASSIC.TTF" id="4_fm6oo"]
-[ext_resource type="Texture2D" uid="uid://bbw8vuineikou" path="res://assets/fonts/MODE 1.png" id="5_eh8bp"]
-[ext_resource type="Texture2D" uid="uid://d2obwp5wbobbi" path="res://assets/fonts/MODE 2.png" id="6_pdb8h"]
+[ext_resource type="FontFile" uid="uid://dip23bqx43rs0" path="res://assets/fonts/ARCADECLASSIC.TTF" id="4_fm6oo"]
+[ext_resource type="Texture2D" uid="uid://bxcreor1x3r15" path="res://assets/fonts/MODE 1.png" id="5_eh8bp"]
+[ext_resource type="Texture2D" uid="uid://b0yqxk1wyotdt" path="res://assets/fonts/MODE 2.png" id="6_pdb8h"]
+[ext_resource type="Texture2D" uid="uid://bm6i821txfohn" path="res://assets/fonts/MODE 3.png" id="7_rs8ys"]
+[ext_resource type="Texture2D" uid="uid://dim26biemdjkb" path="res://assets/Sprites/player2.png" id="7_sy7yk"]
 
 [sub_resource type="Theme" id="Theme_0afyi"]
 default_font = ExtResource("2_7467h")
@@ -27,6 +29,9 @@ default_font = ExtResource("2_7467h")
 default_font_size = 20
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pa8n5"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ddr54"]
+load_path = "res://.godot/imported/player.png-a9f4f293a0d9483a9a6d196062f8c872.ctex"
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -75,9 +80,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -530.0
-offset_top = -228.0
+offset_top = -281.0
 offset_right = 361.0
-offset_bottom = 152.0
+offset_bottom = 354.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.2, 1.2)
@@ -87,10 +92,10 @@ alignment = 1
 [node name="Start" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-focus_neighbor_top = NodePath("../Options")
+focus_neighbor_top = NodePath("../Coop")
 focus_neighbor_bottom = NodePath("../Options")
 focus_next = NodePath("../Options")
-focus_previous = NodePath("../Options")
+focus_previous = NodePath("../Coop")
 theme = SubResource("Theme_f2vrh")
 theme_type_variation = &"FlatButton"
 theme_override_colors/font_color = Color(0.701961, 0.631373, 0.376471, 1)
@@ -109,8 +114,8 @@ icon_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 focus_neighbor_top = NodePath("../Start")
-focus_neighbor_bottom = NodePath("../Start")
-focus_next = NodePath("../Start")
+focus_neighbor_bottom = NodePath("../Coop")
+focus_next = NodePath("../Coop")
 focus_previous = NodePath("../Start")
 theme = SubResource("Theme_rcg2f")
 theme_type_variation = &"FlatButton"
@@ -123,5 +128,61 @@ theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
 theme_override_styles/focus = SubResource("StyleBoxEmpty_pa8n5")
 icon = ExtResource("6_pdb8h")
 
+[node name="Coop" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+focus_neighbor_top = NodePath("../Options")
+focus_neighbor_bottom = NodePath("../Start")
+focus_next = NodePath("../Start")
+focus_previous = NodePath("../Options")
+theme = SubResource("Theme_f2vrh")
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_color = Color(0.701961, 0.631373, 0.376471, 1)
+theme_override_colors/font_pressed_color = Color(0.917647, 0.960784, 0.545098, 1)
+theme_override_colors/font_focus_color = Color(0.815686, 0.811765, 0.290196, 1)
+theme_override_colors/icon_normal_color = Color(0.631373, 0.631373, 0.631373, 1)
+theme_override_colors/icon_pressed_color = Color(0.827451, 0.827451, 0.827451, 1)
+theme_override_colors/icon_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0.631373, 0.631373, 0.631373, 1)
+theme_override_colors/icon_focus_color = Color(1, 1, 1, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3p2fy")
+icon = ExtResource("7_rs8ys")
+icon_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer"]
+visible = false
+position = Vector2(-97.5, 83.3333)
+rotation = 4.71239
+scale = Vector2(0.707317, 0.833333)
+texture = SubResource("CompressedTexture2D_ddr54")
+
+[node name="Sprite2D2" type="Sprite2D" parent="VBoxContainer"]
+visible = false
+position = Vector2(-92.5, 290)
+rotation = 4.71239
+scale = Vector2(0.707317, 0.833333)
+texture = SubResource("CompressedTexture2D_ddr54")
+
+[node name="Sprite2D3" type="Sprite2D" parent="VBoxContainer"]
+visible = false
+position = Vector2(-87.5, 488.75)
+rotation = 4.71239
+scale = Vector2(0.707317, 0.833333)
+texture = SubResource("CompressedTexture2D_ddr54")
+
+[node name="Sprite2D4" type="Sprite2D" parent="VBoxContainer"]
+visible = false
+position = Vector2(987.5, 485.417)
+rotation = 4.71239
+scale = Vector2(0.707317, 0.833333)
+texture = ExtResource("7_sy7yk")
+
+[connection signal="focus_entered" from="VBoxContainer/Start" to="." method="_on_start_entered"]
+[connection signal="mouse_entered" from="VBoxContainer/Start" to="." method="_on_start_entered"]
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="focus_entered" from="VBoxContainer/Options" to="." method="_on_options_entered"]
+[connection signal="mouse_entered" from="VBoxContainer/Options" to="." method="_on_options_entered"]
 [connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="focus_entered" from="VBoxContainer/Coop" to="." method="_on_coop_entered"]
+[connection signal="mouse_entered" from="VBoxContainer/Coop" to="." method="_on_coop_entered"]
+[connection signal="pressed" from="VBoxContainer/Coop" to="." method="_on_coop_pressed"]

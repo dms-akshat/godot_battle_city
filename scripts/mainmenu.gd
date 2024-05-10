@@ -35,3 +35,36 @@ func _on_options_pressed():
 	Globals.is_game_over=false
 	Globals.is_main_menu=false
 	#pass # Replace with function body.
+	
+func _on_coop_pressed():
+	Globals.is_mode_3=true
+	TransitionLayer.change_scene("res://Level_3.tscn")
+	Globals.is_game_over=false
+	Globals.is_main_menu=false
+
+func focus_start():
+	$VBoxContainer/Sprite2D.visible = true
+	$VBoxContainer/Sprite2D2.visible = false
+	$VBoxContainer/Sprite2D3.visible = false
+	$VBoxContainer/Sprite2D4.visible = false
+
+func focus_option():
+	$VBoxContainer/Sprite2D2.visible = true
+	$VBoxContainer/Sprite2D.visible = false
+	$VBoxContainer/Sprite2D3.visible = false
+	$VBoxContainer/Sprite2D4.visible = false
+
+func focus_coop():
+	$VBoxContainer/Sprite2D3.visible = true
+	$VBoxContainer/Sprite2D4.visible = true
+	$VBoxContainer/Sprite2D.visible = false
+	$VBoxContainer/Sprite2D2.visible = false
+
+func _on_start_entered():
+	focus_start()
+
+func _on_options_entered():
+	focus_option()
+
+func _on_coop_entered():
+	focus_coop()

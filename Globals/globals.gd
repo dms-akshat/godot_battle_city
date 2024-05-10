@@ -25,6 +25,7 @@ var boss_tank_destroyed:int=0:
 var is_enemy_boss_bullet:bool=false
 var player_bullet_speed:int=600
 var is_mode_2:bool=false
+var is_mode_3:bool=false
 
 
 #var current_scene: PackedScene
