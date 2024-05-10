@@ -1,13 +1,14 @@
 [gd_scene load_steps=16 format=3 uid="uid://vuig1byvunqr"]
 
 [ext_resource type="Script" path="res://scripts/mainmenu.gd" id="1_qbswg"]
-[ext_resource type="FontFile" uid="uid://jsj0866gpspa" path="res://assets/fonts/font-7x7.ttf" id="2_7467h"]
+[ext_resource type="FontFile" uid="uid://clc0eu18eoh4n" path="res://assets/fonts/font-7x7.ttf" id="2_7467h"]
 [ext_resource type="Texture2D" uid="uid://6jiuc1oogq05" path="res://assets/background/solid_black_background.png" id="2_xvsxd"]
-[ext_resource type="FontFile" uid="uid://dip23bqx43rs0" path="res://assets/fonts/ARCADECLASSIC.TTF" id="4_fm6oo"]
-[ext_resource type="Texture2D" uid="uid://bxcreor1x3r15" path="res://assets/fonts/MODE 1.png" id="5_eh8bp"]
-[ext_resource type="Texture2D" uid="uid://b0yqxk1wyotdt" path="res://assets/fonts/MODE 2.png" id="6_pdb8h"]
-[ext_resource type="Texture2D" uid="uid://bm6i821txfohn" path="res://assets/fonts/MODE 3.png" id="7_rs8ys"]
-[ext_resource type="Texture2D" uid="uid://dim26biemdjkb" path="res://assets/Sprites/player2.png" id="7_sy7yk"]
+[ext_resource type="FontFile" uid="uid://bvdyldsgpxr3u" path="res://assets/fonts/ARCADECLASSIC.TTF" id="4_fm6oo"]
+[ext_resource type="Texture2D" uid="uid://d1n5mn7wmevck" path="res://assets/fonts/MODE 1.png" id="5_eh8bp"]
+[ext_resource type="Texture2D" uid="uid://b026cj01jujsd" path="res://assets/fonts/MODE 2.png" id="6_pdb8h"]
+[ext_resource type="Texture2D" uid="uid://bh12a00qdo08q" path="res://assets/fonts/MODE 3.png" id="7_rs8ys"]
+[ext_resource type="Texture2D" uid="uid://ct0nlfpo5juli" path="res://assets/Sprites/player2.png" id="7_sy7yk"]
+[ext_resource type="Texture2D" uid="uid://baqvutwpdcqqe" path="res://assets/Sprites/Tank.png" id="8_xlbhh"]
 
 [sub_resource type="Theme" id="Theme_0afyi"]
 default_font = ExtResource("2_7467h")
@@ -29,9 +30,6 @@ default_font = ExtResource("2_7467h")
 default_font_size = 20
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pa8n5"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ddr54"]
-load_path = "res://.godot/imported/player.png-a9f4f293a0d9483a9a6d196062f8c872.ctex"
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -154,21 +152,21 @@ visible = false
 position = Vector2(-97.5, 83.3333)
 rotation = 4.71239
 scale = Vector2(0.707317, 0.833333)
-texture = SubResource("CompressedTexture2D_ddr54")
+texture = ExtResource("8_xlbhh")
 
 [node name="Sprite2D2" type="Sprite2D" parent="VBoxContainer"]
 visible = false
 position = Vector2(-92.5, 290)
 rotation = 4.71239
 scale = Vector2(0.707317, 0.833333)
-texture = SubResource("CompressedTexture2D_ddr54")
+texture = ExtResource("8_xlbhh")
 
 [node name="Sprite2D3" type="Sprite2D" parent="VBoxContainer"]
 visible = false
 position = Vector2(-87.5, 488.75)
 rotation = 4.71239
 scale = Vector2(0.707317, 0.833333)
-texture = SubResource("CompressedTexture2D_ddr54")
+texture = ExtResource("8_xlbhh")
 
 [node name="Sprite2D4" type="Sprite2D" parent="VBoxContainer"]
 visible = false

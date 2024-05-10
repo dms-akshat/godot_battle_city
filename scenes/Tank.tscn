@@ -1,12 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://rnxmwfu7lte7"]
 
 [ext_resource type="Script" path="res://scripts/Tank.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://baqvutwpdcqqe" path="res://assets/Sprites/Tank.png" id="2_c1810"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(174, 135)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ddr54"]
-load_path = "res://.godot/imported/player.png-a9f4f293a0d9483a9a6d196062f8c872.ctex"
 
 [node name="Tank" type="CharacterBody2D"]
 script = ExtResource("1")
@@ -18,7 +16,7 @@ shape = SubResource("1")
 
 [node name="TankSprite" type="Sprite2D" parent="."]
 rotation = -1.5708
-texture = SubResource("CompressedTexture2D_ddr54")
+texture = ExtResource("2_c1810")
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(1, -167)
