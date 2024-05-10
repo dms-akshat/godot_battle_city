@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://be75pl5b4m2u"]
 
 [ext_resource type="PackedScene" uid="uid://dfluaj2pwkwtc" path="res://scenes/Enemy.tscn" id="1_jhiet"]
-[ext_resource type="Script" path="res://scenes/EnemyBoss.gd" id="2_1wj16"]
+[ext_resource type="Script" path="res://scripts/EnemyBoss.gd" id="2_1wj16"]
 
 [node name="EnemyBoss" instance=ExtResource("1_jhiet")]
 scale = Vector2(2, 2)

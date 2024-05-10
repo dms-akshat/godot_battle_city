@@ -1,5 +1,6 @@
 extends Enemy
 
+var power_up_scene:PackedScene=preload("res://scenes/health_power_up.tscn")
 func _ready():
 	speed=120
 	bullet_scene=preload("res://scenes/enemy_boss_bullet.tscn")
@@ -20,9 +21,9 @@ func enemy_hit():
 		enemy_health-=10
 		Globals.blink_tween(%EnemySprite)
 	if enemy_health<=0:
-		Globals.score+=(50+(50*(Globals.boss_tank_destroyed+1)))
-		#Globals.tank_destroyed+=1
+		Globals.score+=(100+(50*(Globals.boss_tank_destroyed)))
 		Globals.boss_tank_destroyed+=1
+		Globals.boss_destroyed.emit(global_position)
 		$"..".queue_free()
 	$EnemySprite/ProgressBar.value=enemy_health
 
@@ -30,13 +31,10 @@ func _on_bullet_timer_timeout():
 	if not Globals.is_game_over:
 		var bullet= bullet_scene.instantiate() as Area2D
 		var posx=$Bullet_Marker.position.x
-		#print(direction)
 		var pos=(global_position+direction*posx)
 		bullet.global_position=pos
 		bullet.aim=direction
 		var bullet_sprite= bullet.get_node("Sprite2D")
 		bullet.look_at(bullet.aim + bullet_sprite.global_position)
-		#bullet.global_rotation_degrees+=90
-		
 		$Bullets_Fired.add_child(bullet)
 		$"../Bullet_Timer".start()

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cq3js3pd3fy8q"]
 
 [ext_resource type="PackedScene" uid="uid://bjj51kprpc5o5" path="res://scenes/bullet2.tscn" id="1_b7x1d"]
-[ext_resource type="Script" path="res://scenes/enemy_boss_bullet.gd" id="2_ahgwd"]
+[ext_resource type="Script" path="res://scripts/enemy_boss_bullet.gd" id="2_ahgwd"]
 
 [node name="enemy_boss_bullet" instance=ExtResource("1_b7x1d")]
 scale = Vector2(1.5, 1.5)

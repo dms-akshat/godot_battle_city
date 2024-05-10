@@ -7,6 +7,8 @@ var player_health:int=30
 signal game_over
 signal pause_pressed
 signal stat_change
+signal boss_destroyed()
+var pos
 var score:int = 500
 var tank_destroyed:int = 0:
 	get:
@@ -22,6 +24,7 @@ var boss_tank_destroyed:int=0:
 		boss_tank_destroyed=value
 var is_enemy_boss_bullet:bool=false
 var player_bullet_speed:int=600
+var is_mode_2:bool=false
 
 
 #var current_scene: PackedScene

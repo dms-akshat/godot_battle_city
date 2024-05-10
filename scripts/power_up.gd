@@ -1,5 +1,5 @@
 extends Area2D
-
+class_name PowerUp
 
 func _on_body_entered(body):
 	if "power_up" in body:

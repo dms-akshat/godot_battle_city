@@ -1,22 +1,527 @@
-[gd_scene load_steps=5 format=3 uid="uid://e044lwd47xs8"]
+[gd_scene load_steps=7 format=3 uid="uid://e044lwd47xs8"]
 
 [ext_resource type="PackedScene" uid="uid://cj8axuwjetqvx" path="res://base_level.tscn" id="1_yltk8"]
 [ext_resource type="Script" path="res://level_2.gd" id="2_ns8ra"]
 [ext_resource type="PackedScene" uid="uid://coaamewdg55yw" path="res://scenes/tank_container.tscn" id="3_4n2mp"]
+[ext_resource type="TileSet" uid="uid://c4nl2tb5mbtsj" path="res://Level_1.tres" id="3_pal4g"]
 [ext_resource type="PackedScene" uid="uid://c1v07u344sbjg" path="res://scenes/mode_2_player_health.tscn" id="4_6e2mi"]
+[ext_resource type="PackedScene" uid="uid://8rw5hlma8045" path="res://scenes/breakable_tiles.tscn" id="4_d53qa"]
 
 [node name="Level_2" instance=ExtResource("1_yltk8")]
 script = ExtResource("2_ns8ra")
 
 [node name="background_img" parent="Area2D" index="0"]
-position = Vector2(72, -77)
+position = Vector2(181, -123)
 
-[node name="TileMap" parent="." index="1"]
-layer_0/tile_data = PackedInt32Array(0, 4, 0, 65536, 4, 0, 131072, 4, 0, 196608, 4, 0, 262144, 4, 0, 327680, 4, 0, 393216, 4, 0, 458752, 4, 0, 524288, 4, 0, 589824, 4, 0, 655360, 4, 0, 720896, 4, 0, 786432, 4, 0, 851968, 4, 0, 917504, 4, 0, 983040, 4, 0, 1048576, 4, 0, 1114112, 4, 0, 1179648, 4, 0, 1245184, 4, 0, 1310720, 4, 0, 1, 4, 0, 2, 4, 0, 3, 4, 0, 4, 4, 0, 5, 4, 0, 6, 4, 0, 7, 4, 0, 24, 4, 0, 25, 4, 0, 26, 4, 0, 27, 4, 0, 28, 4, 0, 29, 4, 0, 30, 4, 0, 31, 4, 0, 32, 4, 0, 33, 4, 0, 34, 4, 0, 35, 4, 0, 36, 4, 0, 37, 4, 0, 38, 4, 0, 39, 4, 0, 40, 4, 0, 41, 4, 0, 42, 4, 0, 8, 4, 0, 9, 4, 0, 10, 4, 0, 11, 4, 0, 12, 4, 0, 13, 4, 0, 14, 4, 0, 15, 4, 0, 16, 4, 0, 17, 4, 0, 18, 4, 0, 19, 4, 0, 23, 4, 0, 22, 4, 0, 21, 4, 0, 20, 4, 0, 65578, 4, 0, 131114, 4, 0, 196650, 4, 0, 262186, 4, 0, 327722, 4, 0, 393258, 4, 0, 458794, 4, 0, 524330, 4, 0, 589866, 4, 0, 655402, 4, 0, 720938, 4, 0, 786474, 4, 0, 852010, 4, 0, 917546, 4, 0, 983082, 65540, 0, 1048618, 65540, 0, 1114154, 4, 0, 1179690, 4, 0, 1245226, 4, 0, 1310762, 4, 0, 1441792, 4, 0, 1441793, 4, 0, 1441794, 4, 0, 1441795, 4, 0, 1441796, 4, 0, 1441797, 4, 0, 1441798, 4, 0, 1441799, 4, 0, 1441800, 4, 0, 1441801, 4, 0, 1441802, 4, 0, 1441803, 4, 0, 1441804, 4, 0, 1441805, 4, 0, 1441806, 4, 0, 1441807, 4, 0, 1441808, 4, 0, 1441809, 4, 0, 1441810, 4, 0, 1441811, 4, 0, 1441812, 4, 0, 1441813, 4, 0, 1441814, 4, 0, 1441815, 4, 0, 1441816, 4, 0, 1441817, 4, 0, 1441818, 4, 0, 1441819, 4, 0, 1441820, 4, 0, 1441821, 4, 0, 1441822, 4, 0, 1441823, 4, 0, 1441824, 4, 0, 1441825, 4, 0, 1441826, 4, 0, 1441827, 4, 0, 1441828, 4, 0, 1441829, 4, 0, 1441830, 4, 0, 1441831, 4, 0, 1441832, 4, 0, 1441833, 4, 0, 1441834, 4, 0, 1376298, 4, 0, 1376256, 4, 0)
+[node name="TileMap" type="TileMap" parent="." index="1"]
+tile_set = ExtResource("3_pal4g")
+format = 2
+layer_0/tile_data = PackedInt32Array(1310720, 65540, 0, 1245184, 65540, 0, 1179648, 65540, 0, 1114112, 65540, 0, 1048576, 65540, 0, 983040, 65540, 0, 917504, 65540, 0, 851968, 65540, 0, 786432, 65540, 0, 720896, 65540, 0, 655360, 65540, 0, 589824, 65540, 0, 524288, 65540, 0, 458752, 65540, 0, 393216, 65540, 0, 327680, 65540, 0, 262144, 65540, 0, 196608, 65540, 0, 131072, 65540, 0, 65536, 65540, 0, 0, 65540, 0, 1, 65540, 0, 2, 65540, 0, 3, 65540, 0, 4, 65540, 0, 5, 65540, 0, 6, 65540, 0, 7, 65540, 0, 8, 65540, 0, 9, 65540, 0, 10, 65540, 0, 11, 65540, 0, 12, 65540, 0, 13, 65540, 0, 14, 65540, 0, 15, 65540, 0, 16, 65540, 0, 17, 65540, 0, 18, 65540, 0, 19, 65540, 0, 20, 65540, 0, 21, 65540, 0, 22, 65540, 0, 23, 65540, 0, 24, 65540, 0, 25, 65540, 0, 26, 65540, 0, 27, 65540, 0, 28, 65540, 0, 29, 65540, 0, 30, 65540, 0, 31, 65540, 0, 32, 65540, 0, 33, 65540, 0, 34, 65540, 0, 35, 65540, 0, 36, 65540, 0, 37, 65540, 0, 38, 65540, 0, 39, 65540, 0, 40, 65540, 0, 42, 65540, 0, 43, 65540, 0, 65579, 65540, 0, 131115, 65540, 0, 196651, 65540, 0, 262187, 65540, 0, 327723, 65540, 0, 393259, 65540, 0, 524331, 65540, 0, 589867, 65540, 0, 458795, 65540, 0, 655403, 65540, 0, 720939, 65540, 0, 786475, 65540, 0, 852011, 65540, 0, 917547, 65540, 0, 983083, 65540, 0, 1048619, 65540, 0, 1114155, 65540, 0, 1179691, 65540, 0, 1245227, 65540, 0, 1310762, 65540, 0, 1310763, 65540, 0, 1310761, 65540, 0, 1310760, 65540, 0, 1310759, 65540, 0, 1310758, 65540, 0, 1310757, 65540, 0, 1310756, 65540, 0, 1310755, 65540, 0, 1310754, 65540, 0, 1310753, 65540, 0, 1310752, 65540, 0, 1310751, 65540, 0, 1310750, 65540, 0, 1310749, 65540, 0, 1310748, 65540, 0, 1310745, 65540, 0, 1310744, 65540, 0, 1310743, 65540, 0, 1310732, 65540, 0, 1310731, 65540, 0, 1310729, 65540, 0, 1310728, 65540, 0, 1310727, 65540, 0, 1310726, 65540, 0, 1310725, 65540, 0, 1310724, 65540, 0, 1310723, 65540, 0, 1310722, 65540, 0, 1310721, 65540, 0, 1310733, 65540, 0, 1310734, 65540, 0, 1310738, 65540, 0, 1310737, 65540, 0, 1310736, 65540, 0, 1310735, 65540, 0, 1310739, 65540, 0, 1310741, 65540, 0, 1310742, 65540, 0, 1310740, 65540, 0, 1310746, 65540, 0, 1310747, 65540, 0, 1114113, 65540, 0, 1114115, 65540, 0, 1114116, 65540, 0, 1245189, 65540, 0, 1179653, 3, 0, 1114117, 3, 0, 1114114, 3, 0, 1310730, 4, 0, 655380, 4, 0, 655381, 4, 0, 720917, 4, 0, 720916, 4, 0, 851988, 3, 0, 851989, 3, 0, 851990, 3, 0, 851991, 3, 0, 786455, 3, 0, 720919, 3, 0, 655383, 3, 0, 589847, 3, 0, 524311, 3, 0, 524310, 3, 0, 524309, 3, 0, 524308, 3, 0, 524307, 3, 0, 524306, 3, 0, 589842, 3, 0, 655378, 3, 0, 720914, 3, 0, 786450, 3, 0, 851986, 3, 0, 851987, 3, 0, 41, 4, 0, 262179, 4, 0, 262180, 4, 0, 196644, 4, 0, 983075, 4, 0, 983076, 4, 0, 1048612, 4, 0, 917539, 3, 0, 917540, 3, 0, 917541, 3, 0, 983077, 3, 0, 1048613, 3, 0, 1114149, 3, 0, 1114148, 3, 0, 1114147, 3, 0, 1048611, 3, 0, 196643, 3, 0, 131107, 3, 0, 131108, 3, 0, 131109, 3, 0, 196645, 3, 0, 262181, 3, 0, 327717, 3, 0, 327716, 3, 0, 327715, 3, 0, 655370, 4, 0, 655391, 4, 0, 655369, 3, 0, 589833, 3, 0, 589834, 3, 0, 589835, 3, 0, 655371, 3, 0, 720907, 3, 0, 720906, 3, 0, 720905, 3, 0, 589854, 3, 0, 589855, 3, 0, 589856, 3, 0, 655392, 3, 0, 720928, 3, 0, 720927, 3, 0, 720926, 3, 0, 655390, 3, 0, 65550, 4, 0, 458766, 3, 0, 524302, 3, 0, 589838, 3, 0, 720910, 3, 0, 655374, 3, 0, 786446, 3, 0, 917518, 3, 0, 851982, 3, 0, 458779, 3, 0, 524315, 3, 0, 589851, 3, 0, 720923, 3, 0, 655387, 3, 0, 786459, 3, 0, 917531, 3, 0, 851995, 3, 0, 851981, 4, 0, 524303, 4, 0, 655364, 4, 0, 655399, 4, 0, 720899, 3, 0, 655363, 3, 0, 589827, 3, 0, 589828, 3, 0, 589829, 3, 0, 655365, 3, 0, 720901, 3, 0, 720900, 3, 0, 589862, 3, 0, 589863, 3, 0, 589864, 3, 0, 655400, 3, 0, 720936, 3, 0, 720935, 3, 0, 720934, 3, 0, 655398, 3, 0, 196617, 3, 0, 196618, 3, 0, 196619, 3, 0, 196620, 3, 0, 262156, 3, 0, 262155, 3, 0, 262153, 4, 0, 262154, 4, 0, 196632, 65539, 0, 196634, 65539, 0, 196633, 65539, 0, 196635, 65539, 0, 262171, 65539, 0, 262170, 65539, 0, 262168, 4, 0, 262169, 4, 0, 1179664, 3, 0, 1179665, 3, 0, 1114129, 3, 0, 1114130, 3, 0, 1114128, 65540, 0, 1179666, 65540, 0, 1048580, 3, 0, 983042, 4, 0, 1114119, 4, 0, 1048583, 4, 0, 851985, 3, 0, 589857, 3, 0, 720933, 3, 0, 786441, 3, 0, 524293, 3, 0, 262157, 3, 0, 262172, 3, 0, 196626, 3, 0, 196628, 3, 0, 196627, 3, 0, 1114137, 3, 0, 1114138, 3, 0, 1114139, 3, 0, 1114140, 3, 0, 1245216, 4, 0, 524312, 3, 0, 851994, 4, 0, 524316, 4, 0, 327682, 4, 0)
 
-[node name="PowerUpContainer" type="Node2D" parent="." index="5"]
+[node name="SpawnLocations" parent="." index="2"]
+position = Vector2(321, 244)
 
-[node name="TankContainer" parent="." index="6" instance=ExtResource("3_4n2mp")]
+[node name="Marker2D7" parent="SpawnLocations" index="0"]
+position = Vector2(1586, 345)
+
+[node name="Marker2D9" parent="SpawnLocations" index="2"]
+position = Vector2(1670, 1229)
+
+[node name="Tank" parent="." index="3"]
+position = Vector2(349, 1705)
+rotation = 1.5708
+
+[node name="BreakableTiles" parent="BreakableTiles" index="0" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(1762, 129)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles2" parent="BreakableTiles" index="1" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(1852, 129)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles3" parent="BreakableTiles" index="2" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(1942, 129)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles4" parent="BreakableTiles" index="3" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(1942, 39)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles5" parent="BreakableTiles" index="4" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(1942, 219)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles6" parent="BreakableTiles" index="5" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(1942, 309)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles7" parent="BreakableTiles" index="6" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(1852, 309)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles9" parent="BreakableTiles" index="7" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(1762, 219)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles8" parent="BreakableTiles" index="8" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(1762, 309)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles10" parent="BreakableTiles" index="9" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(1672, 849)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles11" parent="BreakableTiles" index="10" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(1852, 759)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles12" parent="BreakableTiles" index="11" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(1942, 849)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles14" parent="BreakableTiles" index="12" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(2932, 939)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles15" parent="BreakableTiles" index="13" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(3022, 939)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles16" parent="BreakableTiles" index="14" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(3022, 849)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles17" parent="BreakableTiles" index="15" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(3112, 849)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles18" parent="BreakableTiles" index="16" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(3742, 849)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles19" parent="BreakableTiles" index="17" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(3832, 849)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles20" parent="BreakableTiles" index="18" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(3922, 849)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles21" parent="BreakableTiles" index="19" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(4012, 849)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles22" parent="BreakableTiles" index="20" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(4642, 849)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles23" parent="BreakableTiles" index="21" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(4732, 849)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles24" parent="BreakableTiles" index="22" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(4822, 849)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles25" parent="BreakableTiles" index="23" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(4822, 759)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles26" parent="BreakableTiles" index="24" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(4822, 669)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles27" parent="BreakableTiles" index="25" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(4822, 579)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles28" parent="BreakableTiles" index="26" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(4732, 579)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles29" parent="BreakableTiles" index="27" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(4642, 579)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles30" parent="BreakableTiles" index="28" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(4642, 759)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles31" parent="BreakableTiles" index="29" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(3922, 579)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles32" parent="BreakableTiles" index="30" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(3922, 489)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles33" parent="BreakableTiles" index="31" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(3922, 399)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles34" parent="BreakableTiles" index="32" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(3922, 309)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles35" parent="BreakableTiles" index="33" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(3922, 219)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles36" parent="BreakableTiles" index="34" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(3922, 129)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles37" parent="BreakableTiles" index="35" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(3922, 39)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles38" parent="BreakableTiles" index="36" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(3922, -51)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles39" parent="BreakableTiles" index="37" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(3652, 39)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles40" parent="BreakableTiles" index="38" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(3562, 39)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles41" parent="BreakableTiles" index="39" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(3562, 129)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles42" parent="BreakableTiles" index="40" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(3562, 219)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles43" parent="BreakableTiles" index="41" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(3562, 309)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles13" parent="BreakableTiles" index="42" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(1942, 939)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles44" parent="BreakableTiles" index="43" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(3562, 399)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles45" parent="BreakableTiles" index="44" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(3562, 489)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles46" parent="BreakableTiles" index="45" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(3472, 489)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles47" parent="BreakableTiles" index="46" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(3382, 489)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles48" parent="BreakableTiles" index="47" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(3292, 489)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles49" parent="BreakableTiles" index="48" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(3202, 489)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles50" parent="BreakableTiles" index="49" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(3112, 489)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles51" parent="BreakableTiles" index="50" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(3022, 489)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles52" parent="BreakableTiles" index="51" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(3112, 399)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles53" parent="BreakableTiles" index="52" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(3112, 309)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles54" parent="BreakableTiles" index="53" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(3112, 219)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles55" parent="BreakableTiles" index="54" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(3112, 129)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles56" parent="BreakableTiles" index="55" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(3112, 39)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles57" parent="BreakableTiles" index="56" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(3202, 39)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles58" parent="BreakableTiles" index="57" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(3472, 39)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles61" parent="BreakableTiles" index="58" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(3292, -411)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles62" parent="BreakableTiles" index="59" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(3112, -411)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles64" parent="BreakableTiles" index="60" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(2662, -321)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles63" parent="BreakableTiles" index="61" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(3202, -411)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles59" parent="BreakableTiles" index="62" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(3382, 39)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles60" parent="BreakableTiles" index="63" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(2482, -321)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles65" parent="BreakableTiles" index="64" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(2572, -321)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles66" parent="BreakableTiles" index="65" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(2572, -411)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles67" parent="BreakableTiles" index="66" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(2482, -411)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles68" parent="BreakableTiles" index="67" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(2302, -411)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles69" parent="BreakableTiles" index="68" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(2392, -411)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles70" parent="BreakableTiles" index="69" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(2302, 399)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles71" parent="BreakableTiles" index="70" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(2302, 309)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles72" parent="BreakableTiles" index="71" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(2302, 219)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles73" parent="BreakableTiles" index="72" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(2302, 129)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles74" parent="BreakableTiles" index="73" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(2392, 129)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles75" parent="BreakableTiles" index="74" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(2482, 129)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles76" parent="BreakableTiles" index="75" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(2482, 219)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles77" parent="BreakableTiles" index="76" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(2482, 309)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles79" parent="BreakableTiles" index="77" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(2752, 399)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles85" parent="BreakableTiles" index="78" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(2752, 489)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles86" parent="BreakableTiles" index="79" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(2752, 579)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles80" parent="BreakableTiles" index="80" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(2752, 309)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles81" parent="BreakableTiles" index="81" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(2752, 219)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles82" parent="BreakableTiles" index="82" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(2752, 129)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles83" parent="BreakableTiles" index="83" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(2752, 39)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles84" parent="BreakableTiles" index="84" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(2752, -51)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles78" parent="BreakableTiles" index="85" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(2392, 309)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles87" parent="BreakableTiles" index="86" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(3652, -411)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles88" parent="BreakableTiles" index="87" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(3742, -411)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles89" parent="BreakableTiles" index="88" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(3832, -411)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles90" parent="BreakableTiles" index="89" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(3922, -411)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles91" parent="BreakableTiles" index="90" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(3922, -321)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles92" parent="BreakableTiles" index="91" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(4012, -321)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles94" parent="BreakableTiles" index="92" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(3292, 39)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles95" parent="BreakableTiles" index="93" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(4192, 129)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles96" parent="BreakableTiles" index="94" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(4192, 219)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles97" parent="BreakableTiles" index="95" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(4192, 309)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles98" parent="BreakableTiles" index="96" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(4282, 309)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles99" parent="BreakableTiles" index="97" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(4372, 309)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles100" parent="BreakableTiles" index="98" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(4372, 219)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles101" parent="BreakableTiles" index="99" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(4372, 129)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles102" parent="BreakableTiles" index="100" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(4282, 129)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles103" parent="BreakableTiles" index="101" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(4462, 129)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles104" parent="BreakableTiles" index="102" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(4642, -231)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles105" parent="BreakableTiles" index="103" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(4732, -231)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles106" parent="BreakableTiles" index="104" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(4822, -231)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles107" parent="BreakableTiles" index="105" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(4822, -321)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles108" parent="BreakableTiles" index="106" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(4822, -411)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles109" parent="BreakableTiles" index="107" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(4822, -501)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles110" parent="BreakableTiles" index="108" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(4732, -501)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles111" parent="BreakableTiles" index="109" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(4642, -501)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles112" parent="BreakableTiles" index="110" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(4642, -411)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles113" parent="BreakableTiles" index="111" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(5002, 309)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles116" parent="BreakableTiles" index="112" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(4822, 309)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles117" parent="BreakableTiles" index="113" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(4912, 219)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles118" parent="BreakableTiles" index="114" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(4912, 129)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles119" parent="BreakableTiles" index="115" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(5002, 129)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles120" parent="BreakableTiles" index="116" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(5092, 129)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles121" parent="BreakableTiles" index="117" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(5092, 219)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles122" parent="BreakableTiles" index="118" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(5092, 309)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles114" parent="BreakableTiles" index="119" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(4912, 309)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles115" parent="BreakableTiles" index="120" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(4912, 309)
+tilemap = NodePath("../../TileMap")
+
+[node name="BreakableTiles93" parent="BreakableTiles" index="121" node_paths=PackedStringArray("tilemap") instance=ExtResource("4_d53qa")]
+position = Vector2(3832, -321)
+tilemap = NodePath("../../TileMap")
+
+[node name="PowerUpContainer" type="Node2D" parent="." index="6"]
+
+[node name="TankContainer" parent="." index="7" instance=ExtResource("3_4n2mp")]
 scale = Vector2(0.5, 0.5)
 
 [node name="Timer2" type="Timer" parent="TankContainer" index="0"]
